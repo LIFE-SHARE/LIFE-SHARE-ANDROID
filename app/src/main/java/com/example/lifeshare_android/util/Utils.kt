@@ -18,6 +18,7 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 object Utils {
     var RETROFIT: Retrofit = Builder()
@@ -31,9 +32,15 @@ object Utils {
     private val client: OkHttpClient
         get() {
             val builder = OkHttpClient.Builder()
+                .connectTimeout(1, TimeUnit.MINUTES)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(15, TimeUnit.SECONDS)
+
             if (BuildConfig.DEBUG) {
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
-                builder.addInterceptor(httpLoggingInterceptor.apply { httpLoggingInterceptor.level = Level.BODY })
+                builder.addInterceptor(httpLoggingInterceptor.apply {
+                    httpLoggingInterceptor.level = Level.BODY
+                })
             }
             return builder.build()
         }

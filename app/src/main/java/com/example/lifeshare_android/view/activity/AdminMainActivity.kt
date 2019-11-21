@@ -27,7 +27,7 @@ class AdminMainActivity : BaseActivity<ActivityAdminMainBinding, AdminViewModel>
     override fun initObserver() {
         with(viewModel) {
 
-            searchEvent.observe(this@AdminMainActivity, Observer {
+            addRoomEvnet.observe(this@AdminMainActivity, Observer {
                 startActivity(Intent(this@AdminMainActivity, SearchActivity::class.java), intentRightActivityAnim.toBundle())
                 finish()
             })

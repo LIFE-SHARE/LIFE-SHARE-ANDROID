@@ -25,4 +25,20 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
 
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        setUp()
+        viewModel.setUp()
+    }
+
+    private fun setUp() {
+        when {
+            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId")!!.toInt()
+            else -> {
+                simpleToast("houseId Null")
+            }
+        }
+    }
 }

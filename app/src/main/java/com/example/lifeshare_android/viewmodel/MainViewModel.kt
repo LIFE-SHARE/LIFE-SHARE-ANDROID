@@ -4,13 +4,13 @@ import android.app.Application
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 import com.example.lifeshare_android.model.house.House
-import com.example.lifeshare_android.network.client.AdminClient
+import com.example.lifeshare_android.network.client.HouseClient
 import com.example.lifeshare_android.widget.SingleLiveEvent
 import com.example.lifeshare_android.widget.recyclerview.adapter.HouseAdapter
 
 class MainViewModel(application: Application) : BaseViewModel<List<House>>(application) {
 
-    private val adminClient = AdminClient()
+    private val adminClient = HouseClient()
 
     val houseAdapter = HouseAdapter()
 
@@ -23,7 +23,7 @@ class MainViewModel(application: Application) : BaseViewModel<List<House>>(appli
     }
 
     fun getAllHouse() {
-        addDisposable(adminClient.getHouseListAll(token), dataObserver)
+        addDisposable(adminClient.getAllHouse(token), dataObserver)
     }
 
     override fun onRetrieveDataSuccess(data: List<House>) {

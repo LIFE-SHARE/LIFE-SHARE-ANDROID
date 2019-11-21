@@ -1,7 +1,7 @@
 package com.example.lifeshare_android.base
 
-import com.example.livetogether.network.response.Response
-import com.example.livetogether.util.Utils
+import com.example.lifeshare_android.network.response.Response
+import com.example.lifeshare_android.util.Utils
 
 import io.reactivex.functions.Function
 

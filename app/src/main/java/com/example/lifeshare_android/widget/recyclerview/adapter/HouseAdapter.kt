@@ -15,7 +15,7 @@ import com.example.lifeshare_android.widget.recyclerview.viewholder.HouseViewHol
 
 class HouseAdapter : RecyclerView.Adapter<HouseViewHolder>(), HouseAdapterNavigator {
 
-    val openHouse = SingleLiveEvent<String>()
+    val openHouse = SingleLiveEvent<Int>()
 
     private lateinit var homeList: List<House>
 
@@ -37,7 +37,7 @@ class HouseAdapter : RecyclerView.Adapter<HouseViewHolder>(), HouseAdapterNaviga
         notifyDataSetChanged()
     }
 
-    override fun openHouse(id: String) {
+    override fun openHouse(id: Int) {
         openHouse.value = id
     }
 }

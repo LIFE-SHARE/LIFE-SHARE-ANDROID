@@ -2,5 +2,5 @@ package com.example.lifeshare_android.widget.recyclerview.navigator
 
 interface HouseAdapterNavigator {
 
-    fun openHouse(id: String)
+    fun openHouse(id: Int)
 }

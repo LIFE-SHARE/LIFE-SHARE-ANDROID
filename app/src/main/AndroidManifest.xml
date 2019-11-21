@@ -10,12 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.ShowHouseActivity"></activity>
-        <activity android:name=".view.activity.ProfileActivity" />
-        <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.AddHouseActivity" />
-        <activity android:name=".view.activity.GuestMainActivity" />
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

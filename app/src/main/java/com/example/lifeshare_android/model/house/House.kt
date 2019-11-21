@@ -1,6 +1,8 @@
 package com.example.lifeshare_android.model.house
 
-data class House(var id: String,
+import com.example.lifeshare_android.model.room.Room
+
+data class House(var id: Int,
                  var userId: String,
                  var name: String,
                  var address: String,
@@ -10,4 +12,5 @@ data class House(var id: String,
                  var information: String,
                  var maxDeposit: Int,
                  var maxMonthly: Int,
-                 var imageData: String)
+                 var imageData: String,
+                 var rooms: List<Room>)

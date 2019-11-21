@@ -13,7 +13,4 @@ interface UserDao : BaseDao<Member> {
 
     @Query("SELECT * FROM user_table WHERE id=:id")
     fun getUser(id: String?): Single<Member>
-
-    @Query("SELECT phoneNumber FROM user_table WHERE id=:id")
-    fun getUserPhoneNumber(id: String?): String
 }

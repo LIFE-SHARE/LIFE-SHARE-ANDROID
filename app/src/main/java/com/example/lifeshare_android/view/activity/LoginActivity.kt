@@ -1,5 +1,6 @@
 package com.example.lifeshare_android.view.activity
 
+import android.content.Intent
 import androidx.lifecycle.Observer
 
 import com.example.lifeshare_android.BR
@@ -34,12 +35,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             onSuccessEvent.observe(this@LoginActivity, Observer {
-                if(it == 0) {
-//                    startActivityWithFinish(GuestMainActivity::class.java)
-                }
-                else if(it == 1) {
-                    startActivityWithFinish(GuestMainActivity::class.java)
-                }
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java)
+                    .putExtra("userName", it))
+                finish()
             })
         }
     }

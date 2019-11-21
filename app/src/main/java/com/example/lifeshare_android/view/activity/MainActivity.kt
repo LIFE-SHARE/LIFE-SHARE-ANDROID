@@ -45,6 +45,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun onResume() {
         super.onResume()
 
+        setUp()
         viewModel.getAllHouse()
+    }
+
+    private fun setUp() {
+        when {
+            intent!!.hasExtra("userName") -> viewModel.userName.value = intent!!.getStringExtra("userName")
+            else -> {
+                viewModel.userName.value = "사용자"
+            }
+        }
     }
 }

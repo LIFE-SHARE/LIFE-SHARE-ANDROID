@@ -16,6 +16,8 @@ class MainViewModel(application: Application) : BaseViewModel<List<House>>(appli
 
     val addHouseEvent = SingleLiveEvent<Unit>()
 
+    val userName = SingleLiveEvent<String>()
+
     fun onClickAddHouse() {
         addHouseEvent.call()
     }

@@ -1,4 +1,6 @@
 package com.example.lifeshare_android.widget.recyclerview.navigator
 
-interface AdminAdapterNavigator {
+interface HouseItemNavigator {
+
+    fun openHouse()
 }

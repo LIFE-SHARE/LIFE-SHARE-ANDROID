@@ -5,13 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.lifeshare_android.widget.recyclerview.viewmodel.AdminItemViewModel" />
+            type="com.example.lifeshare_android.widget.recyclerview.viewmodel.HouseItemViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="100dp"
+    android:onClick="@{() -> viewModel.openHouse()}">
 
 
 

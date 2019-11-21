@@ -4,7 +4,7 @@ import android.app.Application
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
-class AddRoomViewModel(application: Application) : BaseViewModel<Any>(application) {
+class ShowHouseViewModel(application: Application) : BaseViewModel<Any>(application) {
 
     override fun onRetrieveDataSuccess(data: Any) {}
 

@@ -3,17 +3,17 @@ package com.example.lifeshare_android.view.activity
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
-import com.example.lifeshare_android.databinding.ActivitySearchBinding
-import com.example.lifeshare_android.viewmodel.AddRoomViewModel
+import com.example.lifeshare_android.databinding.ActivityAddHouseBinding
+import com.example.lifeshare_android.viewmodel.AddHouseViewModel
 
-class AddRoomActivity : BaseActivity<ActivitySearchBinding, AddRoomViewModel>() {
+class AddHouseActivity : BaseActivity<ActivityAddHouseBinding, AddHouseViewModel>() {
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_add_room
+        return R.layout.activity_add_house
     }
 
-    override fun getViewModel(): Class<AddRoomViewModel> {
-        return AddRoomViewModel::class.java
+    override fun getViewModel(): Class<AddHouseViewModel> {
+        return AddHouseViewModel::class.java
     }
 
     override fun getBindingVariable(): Int {

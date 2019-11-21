@@ -2,6 +2,8 @@ package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
 
+import android.os.Bundle
+
 import androidx.lifecycle.Observer
 
 import com.example.lifeshare_android.BR
@@ -42,8 +44,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         setUp()
         viewModel.getAllHouse()

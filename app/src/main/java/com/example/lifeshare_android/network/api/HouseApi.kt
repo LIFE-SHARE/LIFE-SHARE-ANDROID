@@ -11,9 +11,9 @@ import retrofit2.http.Query
 
 interface HouseApi {
 
-    @GET("/house/my")
+    @GET("/house")
     fun getHouse(@Query("houseId") houseId: Int): Single<retrofit2.Response<Response<House>>>
 
-    @GET("/house")
+    @GET("/house/my")
     fun getAllHouse(@Header("x-access-token") token: String): Single<retrofit2.Response<Response<List<House>>>>
 }

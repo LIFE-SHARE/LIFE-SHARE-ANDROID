@@ -60,7 +60,7 @@ public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
     @Override
     protected int getLayoutId() {
 
-        return R.layout.activity_add_house;
+        return R.layout.activity_add_room;
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.lifeshare_android.network.api
 
 import com.example.lifeshare_android.model.house.House
 import com.example.lifeshare_android.network.response.Response
+import com.example.lifeshare_android.network.response.data.HouseData
 
 import io.reactivex.Single
 
@@ -15,5 +16,5 @@ interface HouseApi {
     fun getHouse(@Query("houseId") houseId: Int): Single<retrofit2.Response<Response<House>>>
 
     @GET("/house/my")
-    fun getAllHouse(@Header("x-access-token") token: String): Single<retrofit2.Response<Response<List<House>>>>
+    fun getAllHouse(@Header("x-access-token") token: String): Single<retrofit2.Response<Response<HouseData>>>
 }

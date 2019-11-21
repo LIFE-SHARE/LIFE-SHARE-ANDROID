@@ -15,14 +15,14 @@ class AdminViewModel(application: Application) : BaseViewModel<List<ApplyList>>(
     val adminMainAdapter = AdminMainAdapter()
 
     val profileEvent = SingleLiveEvent<Unit>()
-    val addRoomEvnet = SingleLiveEvent<Unit>()
+    val addRoomEvent = SingleLiveEvent<Unit>()
 
     fun onClickProfileBtn() {
         profileEvent.call()
     }
 
     fun onClickAddRoom() {
-        addRoomEvnet.call()
+        addRoomEvent.call()
     }
 
     fun getApplyListAllOutSide() {

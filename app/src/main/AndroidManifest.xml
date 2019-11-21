@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.ProfileActivity"></activity>
         <activity android:name=".view.activity.AdminMainActivity" />
-        <activity android:name=".view.activity.SearchActivity" />
+        <activity android:name=".view.activity.AddRoomActivity" />
         <activity android:name=".view.activity.GuestMainActivity" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".MainActivity">

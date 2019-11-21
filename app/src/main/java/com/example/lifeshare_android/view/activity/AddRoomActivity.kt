@@ -4,16 +4,16 @@ import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivitySearchBinding
-import com.example.lifeshare_android.viewmodel.SearchViewModel
+import com.example.lifeshare_android.viewmodel.AddRoomViewModel
 
-class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>() {
+class AddRoomActivity : BaseActivity<ActivitySearchBinding, AddRoomViewModel>() {
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_search
+        return R.layout.activity_add_room
     }
 
-    override fun getViewModel(): Class<SearchViewModel> {
-        return SearchViewModel::class.java
+    override fun getViewModel(): Class<AddRoomViewModel> {
+        return AddRoomViewModel::class.java
     }
 
     override fun getBindingVariable(): Int {

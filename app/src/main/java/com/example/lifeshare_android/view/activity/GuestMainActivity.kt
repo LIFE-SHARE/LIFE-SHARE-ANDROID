@@ -32,7 +32,7 @@ class GuestMainActivity : BaseActivity<ActivityGuestMainBinding, GuestMainViewMo
             })
 
             searchEvent.observe(this@GuestMainActivity, Observer {
-                startActivity(Intent(applicationContext, SearchActivity::class.java), activityOptions.toBundle())
+                startActivity(Intent(applicationContext, AddRoomActivity::class.java), activityOptions.toBundle())
             })
         }
     }

@@ -19,4 +19,8 @@ class RoomViewHolder(val binding: ItemRoomBinding) : BaseViewHolder<RoomAdapterN
         viewModel.setNavigator(this)
         binding.viewModel = viewModel
     }
+
+    override fun openRoom() {
+        getNavigator().openRoom(room.id)
+    }
 }

@@ -10,6 +10,7 @@ import com.example.lifeshare_android.databinding.ActivityLoginBinding
 import com.example.lifeshare_android.viewmodel.LoginViewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
+    // TODO : 집주인 계정: alskt0419, 1234 || 손님 계정: gotjd0419, 1234
 
     override fun getLayoutId(): Int {
         return R.layout.activity_login

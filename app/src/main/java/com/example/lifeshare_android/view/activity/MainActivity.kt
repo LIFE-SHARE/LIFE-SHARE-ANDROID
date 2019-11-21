@@ -30,7 +30,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         with(viewModel) {
 
             addHouseEvent.observe(this@MainActivity, Observer {
-                startActivityWithFinish(AddHouseActivity::class.java)
+                startActivity(AddHouseActivity::class.java)
             })
 
             with(houseAdapter) {

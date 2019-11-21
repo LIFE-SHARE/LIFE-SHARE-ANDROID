@@ -4,12 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.example.lifeshare_android.viewmodel.AddHouseViewModel" />
-    </data>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,6 +29,236 @@
             tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_bar_layout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UselessParent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/input_img"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/nanum_squareeb"
+                android:gravity="center"
+                android:text="사진등록"
+                android:textColor="@color/black"
+                android:textSize="8pt"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/house_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/room_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_img"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="하우스 이름"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/house_image" />
+
+            <TextView
+                android:id="@+id/place_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="위치"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/gender_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="성별제한"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="@+id/place_title"
+                app:layout_constraintTop_toBottomOf="@+id/place_title" />
+
+            <TextView
+                android:id="@+id/age_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="나이제한"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="@+id/gender_title"
+                app:layout_constraintTop_toBottomOf="@+id/gender_title" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="최소계약기간"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="@+id/age_title"
+                app:layout_constraintTop_toBottomOf="@+id/age_title" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="수용인원"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                android:fontFamily="@font/nanum_squareb"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nanum_squareb"
+                android:text="상세정보"
+                android:textColor="@color/black"
+                android:textSize="11pt"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <EditText
+                android:id="@+id/house_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="ex) 마녀집구석"
+                app:layout_constraintBottom_toBottomOf="@+id/textView14"
+                app:layout_constraintStart_toEndOf="@+id/textView14"
+                app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+            <EditText
+                android:id="@+id/house_place_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="ex) 서울시 강남구"
+                app:layout_constraintBottom_toBottomOf="@+id/place_title"
+                app:layout_constraintStart_toEndOf="@+id/place_title"
+                app:layout_constraintTop_toTopOf="@+id/place_title" />
+
+            <EditText
+                android:id="@+id/ageLimit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="ex) 만 19세 이상"
+                app:layout_constraintBottom_toBottomOf="@+id/age_title"
+                app:layout_constraintStart_toEndOf="@+id/age_title"
+                app:layout_constraintTop_toTopOf="@+id/age_title" />
+
+            <EditText
+                android:id="@+id/contractperiod_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:hint="ex) 2달"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+            <EditText
+                android:id="@+id/maxMemberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="ex) 10명"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintStart_toEndOf="@+id/textView16"
+                app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+            <EditText
+                android:id="@+id/info_text"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="ex) 애완동물 안됩니다 !!"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <EditText
+                android:id="@+id/gender_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ems="10"
+                android:hint="ex) 남여공용"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/gender_title"
+                app:layout_constraintStart_toEndOf="@+id/gender_title"
+                app:layout_constraintTop_toTopOf="@+id/gender_title"
+                app:layout_constraintVertical_bias="0.571" />
+
+            <TextView
+                android:id="@+id/addRoomBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="등록하기"
+                android:textSize="9pt"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nanum_squareeb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

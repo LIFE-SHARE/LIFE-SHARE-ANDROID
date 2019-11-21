@@ -10,7 +10,7 @@ import com.example.lifeshare_android.widget.recyclerview.adapter.HouseAdapter
 
 class MainViewModel(application: Application) : BaseViewModel<HouseDatas>(application) {
 
-    private val adminClient = HouseClient()
+    private val houseClient = HouseClient()
 
     val houseAdapter = HouseAdapter()
 
@@ -23,7 +23,7 @@ class MainViewModel(application: Application) : BaseViewModel<HouseDatas>(applic
     }
 
     fun getAllHouse() {
-        addDisposable(adminClient.getAllHouse(token), dataObserver)
+        addDisposable(houseClient.getAllHouse(token), dataObserver)
     }
 
     override fun onRetrieveDataSuccess(data: HouseDatas) {

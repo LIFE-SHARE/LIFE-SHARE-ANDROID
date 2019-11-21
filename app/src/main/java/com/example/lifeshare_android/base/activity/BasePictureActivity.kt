@@ -45,18 +45,6 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
         startActivityForResult(intent, PICK_FROM_ALBUM)
     }
 
-    protected fun goToCropPage(tempUri: Uri?, uri: Uri?) {
-        val cropIntent = Intent("com.android.camera.action.CROP")
-        cropIntent.flags = Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-        cropIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-        cropIntent.setDataAndType(tempUri, "image/*")
-        cropIntent.putExtra("aspectX", 1)
-        cropIntent.putExtra("aspectY", 1)
-        cropIntent.putExtra("scale", true)
-        cropIntent.putExtra("output", uri)
-        startActivityForResult(cropIntent, REQUEST_IMAGE_CROP)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_OK) {

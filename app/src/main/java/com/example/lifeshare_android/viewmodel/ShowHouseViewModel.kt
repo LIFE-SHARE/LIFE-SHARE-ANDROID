@@ -9,13 +9,13 @@ import com.example.lifeshare_android.network.client.HouseClient
 import com.example.lifeshare_android.network.response.data.HouseData
 import com.example.lifeshare_android.util.Strings
 import com.example.lifeshare_android.widget.SingleLiveEvent
-import com.example.lifeshare_android.widget.recyclerview.adapter.RoomAdapter
+import com.example.lifeshare_android.widget.recyclerview.adapter.RoomAapter
 
 class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(application) {
 
     private val houseClient = HouseClient()
 
-    val roomAdapter = RoomAdapter()
+    val roomAdapter = RoomAapter()
 
     val backEvent = SingleLiveEvent<Unit>()
     val addRoomEvent = SingleLiveEvent<Unit>()
@@ -46,16 +46,16 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     override fun onRetrieveDataSuccess(data: HouseData) {
         name.value = data.house_data.name
         address.value = data.house_data.address
-        if(data.house_data.genderLimit == 0) {
+        if(data.house_data.genderLimit == "남여혼용") {
             genderLimit.value = "남여혼용"
         }
-        else if(data.house_data.genderLimit == 1) {
+        else if(data.house_data.genderLimit == "남여분리") {
             genderLimit.value = "남여분리"
         }
-        else if(data.house_data.genderLimit == 2) {
+        else if(data.house_data.genderLimit == "남성전용") {
             genderLimit.value = "남성전용"
         }
-        else if(data.house_data.genderLimit == 3) {
+        else if(data.house_data.genderLimit == "여성전용") {
             genderLimit.value = "여성전용"
         }
         ageLimit.value = String.format("만 " + data.house_data.ageLimit + "세 이상")

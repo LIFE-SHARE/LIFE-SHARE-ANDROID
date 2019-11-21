@@ -9,10 +9,13 @@ import com.example.lifeshare_android.network.client.HouseClient
 import com.example.lifeshare_android.network.response.data.HouseData
 import com.example.lifeshare_android.util.Strings
 import com.example.lifeshare_android.widget.SingleLiveEvent
+import com.example.lifeshare_android.widget.recyclerview.adapter.RoomAdapter
 
 class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(application) {
 
     private val houseClient = HouseClient()
+
+    val roomAdapter = RoomAdapter()
 
     val backEvent = SingleLiveEvent<Unit>()
     val addRoomEvent = SingleLiveEvent<Unit>()
@@ -60,6 +63,8 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
         information.value = data.house_data.information
         maxMember.value = String.format("" + data.house_data.maxMember + "명")
         image.value = Strings.MAIN_HOST + "/" + data.house_data.imageData
+
+        roomAdapter.updateList(data.house_data.room_data)
     }
 
     override fun onRetrieveBaseSuccess(message: String) {}

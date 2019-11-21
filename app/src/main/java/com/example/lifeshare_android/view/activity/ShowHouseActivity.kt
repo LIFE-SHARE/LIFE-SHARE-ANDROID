@@ -34,6 +34,13 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
             addRoomEvent.observe(this@ShowHouseActivity, Observer {
                 startActivityWithFinish(AddRoomActivity::class.java)
             })
+
+            with(roomAdapter) {
+
+                openRoom.observe(this@ShowHouseActivity, Observer {
+                    // TODO : onClickRoomItem
+                })
+            }
         }
     }
 

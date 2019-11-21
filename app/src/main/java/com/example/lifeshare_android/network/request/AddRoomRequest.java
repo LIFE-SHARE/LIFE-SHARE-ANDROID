@@ -2,24 +2,24 @@ package com.example.lifeshare_android.network.request;
 
 public class AddRoomRequest {
 
-    int house_id;
+    int houseId;
     int peopleCnt;
     String money;
     String imageData;
 
-    public AddRoomRequest(int house_id, int peopleCnt, String money, String imageData) {
-        this.house_id = house_id;
+    public AddRoomRequest(int houseId, int peopleCnt, String money, String imageData) {
+        this.houseId = houseId;
         this.peopleCnt = peopleCnt;
         this.money = money;
         this.imageData = imageData;
     }
 
-    public int getHouse_id() {
-        return house_id;
+    public int getHouseId() {
+        return houseId;
     }
 
-    public void setHouse_id(int house_id) {
-        this.house_id = house_id;
+    public void setHouseId(int houseId) {
+        this.houseId = houseId;
     }
 
     public int getPeopleCnt() {

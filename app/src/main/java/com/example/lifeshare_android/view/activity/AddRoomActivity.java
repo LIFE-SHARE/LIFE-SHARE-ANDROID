@@ -45,7 +45,7 @@ import retrofit2.Response;
 
 public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
 
-    String houseId;
+    String houseId = null;
 
     File tempFile;
     File file;
@@ -74,14 +74,14 @@ public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
             RequestBody reqImage = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("image", file.getName(), reqImage);
 
-            RequestBody houserIdText = RequestBody.create(MediaType.parse("text/plain"), houseId);
+            RequestBody houseIdText = RequestBody.create(MediaType.parse("text/plain"), houseId);
             RequestBody memberCountText = RequestBody.create(MediaType.parse("text/plain"), binding.memberCountText.getText().toString());
             RequestBody moneyText = RequestBody.create(MediaType.parse("text/plain"), binding.moneyText.getText().toString());
 
             Token token = new Token(this);
 
             Call<AddRoomRequest> roomRequestCall = addRoomApi.postRoom(token.getToken(),
-                    houserIdText, memberCountText, moneyText, part);
+                    houseIdText, memberCountText, moneyText, part);
 
             roomRequestCall.enqueue(new Callback<AddRoomRequest>() {
                 @Override

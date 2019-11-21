@@ -44,7 +44,6 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     }
 
     override fun onRetrieveDataSuccess(data: HouseData) {
-        houseId.value = data.house_data.id
         name.value = data.house_data.name
         address.value = data.house_data.address
         if(data.house_data.genderLimit == "남여혼용") {

@@ -30,7 +30,4 @@ class RoomRepository(application: Application) {
     fun getUser(id: String): Single<Member> {
         return userDao.getUser(id)
     }
-    fun getUserPhoneNumber(id: String): String {
-        return userDao.getUserPhoneNumber(id)
-    }
 }

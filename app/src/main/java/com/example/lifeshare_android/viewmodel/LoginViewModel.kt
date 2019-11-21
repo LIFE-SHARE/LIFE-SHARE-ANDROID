@@ -15,11 +15,7 @@ class LoginViewModel(application: Application) : BaseViewModel<LoginData>(applic
     var request = LoginRequest()
 
     val loginEvent = SingleLiveEvent<Unit>()
-    val signUpEvent = SingleLiveEvent<Unit>()
     val onSuccessEvent = SingleLiveEvent<Unit>()
-
-    val findIdEvent = SingleLiveEvent<Unit>()
-    val findPwEvent = SingleLiveEvent<Unit>()
 
     fun login() {
         addDisposable(signClient.login(request), dataObserver)
@@ -27,18 +23,6 @@ class LoginViewModel(application: Application) : BaseViewModel<LoginData>(applic
 
     fun onClickLogin() {
         loginEvent.call()
-    }
-
-    fun onClickSignUp() {
-        signUpEvent.call()
-    }
-
-    fun onClickFindIdBtn() {
-        findIdEvent.call()
-    }
-
-    fun onClickFindPwBtn() {
-        findPwEvent.call()
     }
 
     override fun onRetrieveDataSuccess(data: LoginData) {

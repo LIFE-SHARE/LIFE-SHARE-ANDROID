@@ -25,17 +25,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override fun initObserver() {
         with(viewModel) {
 
-            signUpEvent.observe(this@LoginActivity, Observer {
-//                startActivity(SignUpActivity::class.java)
-            })
-
             loginEvent.observe(this@LoginActivity, Observer {
                 if(isEmpty()) {
                     simpleToast(R.string.empty_message)
                     return@Observer
                 }
-//                viewModel.login()
-//                startActivityWithFinish(MainActivity::class.java)
+                viewModel.login()
             })
 
             onSuccessEvent.observe(this@LoginActivity, Observer {

@@ -140,7 +140,6 @@
                 android:text="@string/sign_up_text"
                 android:textColor="@color/black"
                 android:textSize="7pt"
-                android:onClick="@{() -> viewModel.onClickSignUp()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -153,7 +152,6 @@
                 android:fontFamily="@font/nanum_squareeb"
                 android:textColor="@color/black"
                 android:textSize="7pt"
-                android:onClick="@{() -> viewModel.onClickFindPwBtn()}"
                 app:layout_constraintBottom_toTopOf="@+id/sign_up_button"
                 app:layout_constraintEnd_toEndOf="@+id/sign_up_button" />
 
@@ -180,7 +178,6 @@
                 android:fontFamily="@font/nanum_squareeb"
                 android:textColor="@color/black"
                 android:textSize="7pt"
-                android:onClick="@{() -> viewModel.onClickFindIdBtn()}"
                 app:layout_constraintBottom_toBottomOf="@+id/textView46"
                 app:layout_constraintEnd_toStartOf="@+id/textView46"
                 app:layout_constraintTop_toTopOf="@+id/textView46" />

@@ -15,6 +15,131 @@
     android:layout_height="match_parent"
     tools:context="com.example.lifeshare_android.view.activity.MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/menu_navigation_linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessLeaf">
+
+        <RelativeLayout
+            android:id="@+id/main_activity_fragment"
+            android:name="com.example.a2019hack.Page.fragment.MainPageFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_navigation_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DisableBaselineAlignment">
+
+        <LinearLayout
+            android:id="@+id/home_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="@{() -> viewModel.onClickHomeBtn()}"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/home_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/home_icon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/home_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/main_home_text"
+                android:textColor="@color/black"
+                android:textSize="5pt"
+                android:fontFamily="@font/nanum_squareb"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_line_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="@{() -> viewModel.onClickTimeLineBtn()}"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/time_line_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/search_icon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/time_line_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/main_search_button_text"
+                android:textColor="@color/black"
+                android:textSize="5pt"
+                android:fontFamily="@font/nanum_squareb"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="@{() -> viewModel.onClickSettingBtn()}"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/setting_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/setting_icon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/setting_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/main_setting_button_text"
+                android:textColor="@color/black"
+                android:textSize="5pt"
+                android:fontFamily="@font/nanum_squareb"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

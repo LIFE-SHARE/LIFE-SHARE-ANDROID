@@ -2,6 +2,8 @@ package com.example.lifeshare_android.view.activity
 
 import android.os.Bundle
 
+import androidx.lifecycle.Observer
+
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
@@ -25,6 +27,13 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
     override fun initObserver() {
         with(viewModel) {
 
+            backEvent.observe(this@ShowHouseActivity, Observer {
+                finish()
+            })
+
+            addRoomEvent.observe(this@ShowHouseActivity, Observer {
+                startActivityWithFinish(AddRoomActivity::class.java)
+            })
         }
     }
 

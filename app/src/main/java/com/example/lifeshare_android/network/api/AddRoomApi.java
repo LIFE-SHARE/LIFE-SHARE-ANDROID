@@ -1,6 +1,6 @@
 package com.example.lifeshare_android.network.api;
 
-import com.example.lifeshare_android.network.request.AddHouseRequest;
+import com.example.lifeshare_android.network.request.AddRoomRequest;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -14,7 +14,7 @@ public interface AddRoomApi {
 
     @Multipart
     @POST("/house")
-    Call<AddHouseRequest> postRoom(
+    Call<AddRoomRequest> postRoom(
             @Header("x-access-token") String token,
             @Part("houseId") RequestBody houseId,
             @Part("people_count") RequestBody peopleCnt,

@@ -4,15 +4,15 @@ import androidx.room.Dao
 import androidx.room.Query
 
 import com.example.lifeshare_android.base.BaseDao
-import com.example.lifeshare_android.model.user.User
+import com.example.lifeshare_android.model.user.Member
 
 import io.reactivex.Single
 
 @Dao
-interface UserDao : BaseDao<User> {
+interface UserDao : BaseDao<Member> {
 
     @Query("SELECT * FROM user_table WHERE id=:id")
-    fun getUser(id: String?): Single<User>
+    fun getUser(id: String?): Single<Member>
 
     @Query("SELECT phoneNumber FROM user_table WHERE id=:id")
     fun getUserPhoneNumber(id: String?): String

@@ -34,12 +34,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             onSuccessEvent.observe(this@LoginActivity, Observer {
-                startActivityWithFinish(MainActivity::class.java)
+                if(it == 0) {
+//                    startActivityWithFinish(GuestMainActivity::class.java)
+                }
+                else if(it == 1) {
+                    startActivityWithFinish(GuestMainActivity::class.java)
+                }
             })
         }
     }
 
     private fun isEmpty(): Boolean {
-        return viewModel.request.id == null || viewModel.request.password == null
+        return viewModel.request.id == null || viewModel.request.pw == null
     }
 }

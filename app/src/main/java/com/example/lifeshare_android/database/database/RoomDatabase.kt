@@ -6,9 +6,9 @@ import androidx.room.Database
 import androidx.room.Room
 
 import com.example.lifeshare_android.database.dao.UserDao
-import com.example.lifeshare_android.model.user.User
+import com.example.lifeshare_android.model.user.Member
 
-@Database(entities = [User::class], version = 2, exportSchema = false)
+@Database(entities = [Member::class], version = 2, exportSchema = false)
 abstract class RoomDatabase : androidx.room.RoomDatabase() {
 
     abstract fun userDao(): UserDao

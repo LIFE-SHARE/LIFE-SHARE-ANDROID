@@ -91,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:imeOptions="actionDone|flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                         android:inputType="textPassword"
-                        android:text="@={viewModel.request.password}"
+                        android:text="@={viewModel.request.pw}"
                         android:privateImeOptions="nm" />
 
                 </com.google.android.material.textfield.TextInputLayout>

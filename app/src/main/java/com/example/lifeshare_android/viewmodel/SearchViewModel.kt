@@ -4,7 +4,7 @@ import android.app.Application
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
-class MainViewModel(application: Application) : BaseViewModel<Any>(application) {
+class SearchViewModel(application: Application) : BaseViewModel<Any>(application) {
 
     override fun onRetrieveDataSuccess(data: Any) {}
 

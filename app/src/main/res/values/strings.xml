@@ -30,4 +30,7 @@
     <string name="main_setting_button_text">설정</string>
     <string name="main_dutch_button_text">더치페이</string>
     <string name="main_remittance_button_text">보내기</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

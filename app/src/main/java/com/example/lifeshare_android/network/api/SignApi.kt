@@ -1,6 +1,6 @@
 package com.example.lifeshare_android.network.api
 
-import com.example.lifeshare_android.model.user.User
+import com.example.lifeshare_android.model.user.Member
 
 import com.example.lifeshare_android.network.request.LoginRequest
 import com.example.lifeshare_android.network.response.Response
@@ -18,5 +18,5 @@ interface SignApi {
     fun login(@Body loginRequest: LoginRequest): Single<retrofit2.Response<Response<LoginData>>>
 
     @POST("/auth/autoLogin")
-    fun autoLogin(@Header("Authorization") token: String): Single<retrofit2.Response<Response<User>>>
+    fun autoLogin(@Header("Authorization") token: String): Single<retrofit2.Response<Response<Member>>>
 }

@@ -21,7 +21,7 @@ abstract class RoomDatabase : androidx.room.RoomDatabase() {
         fun getInstance(context: Context): RoomDatabase? {
             if (instance == null) {
                 instance = Room.databaseBuilder(context.applicationContext,
-                        RoomDatabase::class.java, "livetogether_database")
+                        RoomDatabase::class.java, "lifeshare_android_database")
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .build()

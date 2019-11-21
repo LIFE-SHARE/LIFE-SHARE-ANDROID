@@ -1,7 +1,5 @@
 package com.example.lifeshare_android.base.activity
 
-import android.app.ActivityOptions
-
 import android.content.Intent
 
 import android.os.Build.VERSION
@@ -24,13 +22,9 @@ import androidx.fragment.app.Fragment
 
 import androidx.lifecycle.ViewModelProviders
 
-import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCompatActivity() {
-
-    var intentRightActivityAnim = ActivityOptions.makeCustomAnimation(applicationContext, R.anim.from_right, R.anim.to_left)
-    var intentLeftActivityAnim = ActivityOptions.makeCustomAnimation(applicationContext, R.anim.from_left, R.anim.to_right)
 
     protected val anim: Animation = AlphaAnimation(0.0f, 1.0f)
 

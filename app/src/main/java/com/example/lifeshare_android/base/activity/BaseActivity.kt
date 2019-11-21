@@ -29,7 +29,7 @@ import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCompatActivity() {
 
-    var activityOptions = ActivityOptions.makeCustomAnimation(applicationContext, R.anim.from_right, R.anim.to_left)
+    var intentActivityAnim = ActivityOptions.makeCustomAnimation(applicationContext, R.anim.from_right, R.anim.to_left)
 
     protected val anim: Animation = AlphaAnimation(0.0f, 1.0f)
 

@@ -1,5 +1,9 @@
 package com.example.lifeshare_android.view.activity
 
+import android.content.Intent
+
+import androidx.lifecycle.Observer
+
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
@@ -23,6 +27,20 @@ class AdminMainActivity : BaseActivity<ActivityAdminMainBinding, AdminViewModel>
     override fun initObserver() {
         with(viewModel) {
 
+            searchEvent.observe(this@AdminMainActivity, Observer {
+                startActivity(Intent(this@AdminMainActivity, SearchActivity::class.java), intentActivityAnim.toBundle())
+                finish()
+            })
+
+            notificationEvent.observe(this@AdminMainActivity, Observer {
+
+            })
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.getApplyListAllOutSide()
     }
 }

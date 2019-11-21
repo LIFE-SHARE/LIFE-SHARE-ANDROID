@@ -47,15 +47,15 @@
             tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/notification_btn"
+            android:id="@+id/profile_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="18dp"
-            android:onClick="@{() -> viewModel.onClickNotificationBtn()}"
+            android:onClick="@{() -> viewModel.onClickProfileBtn()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/notifications_icon"
+            app:srcCompat="@drawable/user_icon"
             tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

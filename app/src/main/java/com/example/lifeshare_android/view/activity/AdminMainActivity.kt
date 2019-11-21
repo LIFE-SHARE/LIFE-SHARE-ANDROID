@@ -32,7 +32,7 @@ class AdminMainActivity : BaseActivity<ActivityAdminMainBinding, AdminViewModel>
                 finish()
             })
 
-            notificationEvent.observe(this@AdminMainActivity, Observer {
+            profileEvent.observe(this@AdminMainActivity, Observer {
 
             })
         }

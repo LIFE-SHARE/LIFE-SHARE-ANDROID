@@ -55,7 +55,7 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
         else if(data.house_data.genderLimit == 3) {
             genderLimit.value = "여성전용"
         }
-        ageLimit.value = String.format("만" + data.house_data.ageLimit + "세 이상")
+        ageLimit.value = String.format("만 " + data.house_data.ageLimit + "세 이상")
         contractperiod.value = data.house_data.contractperiod
         information.value = data.house_data.information
         maxMember.value = String.format("" + data.house_data.maxMember + "명")

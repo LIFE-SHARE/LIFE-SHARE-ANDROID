@@ -38,9 +38,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 //                startActivityWithFinish(MainActivity::class.java)
             })
 
-//            onSuccessEvent.observe(this@LoginActivity, Observer {
-//                startActivityWithFinish(MainActivity::class.java)
-//            })
+            onSuccessEvent.observe(this@LoginActivity, Observer {
+                startActivityWithFinish(MainActivity::class.java)
+            })
         }
     }
 

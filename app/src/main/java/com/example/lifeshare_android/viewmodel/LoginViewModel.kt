@@ -41,7 +41,9 @@ class LoginViewModel(application: Application) : BaseViewModel<LoginData>(applic
         findPwEvent.call()
     }
 
-    override fun onRetrieveDataSuccess(data: LoginData) {}
+    override fun onRetrieveDataSuccess(data: LoginData) {
+        onSuccessEvent.call()
+    }
 
     override fun onRetrieveBaseSuccess(message: String) {}
 }

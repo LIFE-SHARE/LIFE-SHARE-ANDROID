@@ -1,14 +1,22 @@
 package com.example.lifeshare_android.view.activity;
 
 import android.Manifest;
+
 import android.content.Intent;
+
 import android.database.Cursor;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.net.Uri;
+
 import android.os.Bundle;
+
 import android.provider.MediaStore;
+
 import android.util.Log;
+
 import android.widget.Toast;
 
 import com.example.lifeshare_android.R;
@@ -18,15 +26,18 @@ import com.example.lifeshare_android.databinding.ActivityAddHouseBinding;
 import com.example.lifeshare_android.network.api.AddHouseApi;
 import com.example.lifeshare_android.network.request.AddHouseRequest;
 import com.example.lifeshare_android.util.UtilsJava;
+
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.File;
+
 import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,7 +64,7 @@ public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding.addRoomBtn.setOnClickListener(v -> {
+        binding.addHouseBtn.setOnClickListener(v -> {
 
             RequestBody reqImage = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("image", file.getName(), reqImage);

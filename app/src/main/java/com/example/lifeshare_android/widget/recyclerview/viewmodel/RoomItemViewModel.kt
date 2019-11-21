@@ -20,6 +20,6 @@ class RoomItemViewModel : BaseItemViewModel<Room, RoomItemNavigator>() {
     override fun bind(data: Room) {
         image.value = Strings.MAIN_HOST + "/" + data.imageData
         peopleCount.value = String.format("" + data.peopleCnt + "인실")
-        depositAndMonthly.value = String.format("" + data.deposit + "/" + data.monthly)
+        depositAndMonthly.value = data.money
     }
 }

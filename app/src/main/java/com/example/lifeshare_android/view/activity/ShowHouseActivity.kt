@@ -1,5 +1,6 @@
 package com.example.lifeshare_android.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 
 import androidx.lifecycle.Observer
@@ -32,7 +33,8 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
             })
 
             addRoomEvent.observe(this@ShowHouseActivity, Observer {
-                startActivityWithFinish(AddRoomActivity::class.java)
+                startActivity(Intent(this@ShowHouseActivity, AddRoomActivity::class.java)
+                    .putExtra("houseId", viewModel.houseId.value!!))
             })
 
             with(roomAdapter) {

@@ -1,37 +1,51 @@
 package com.example.lifeshare_android.view.activity;
 
 import android.Manifest;
+
 import android.content.Intent;
+
 import android.database.Cursor;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.net.Uri;
+
 import android.os.Bundle;
+
 import android.provider.MediaStore;
+
 import android.util.Log;
+
 import android.widget.Toast;
 
 import com.example.lifeshare_android.R;
 import com.example.lifeshare_android.base.base_java.BaseActivityJava;
 import com.example.lifeshare_android.database.sharedpreference.Token;
-import com.example.lifeshare_android.databinding.ActivityAddHouseBinding;
+import com.example.lifeshare_android.databinding.ActivityAddRoomBinding;
 import com.example.lifeshare_android.network.api.AddHouseApi;
-import com.example.lifeshare_android.network.request.AddHouseRequest;
+import com.example.lifeshare_android.network.api.AddRoomApi;
+import com.example.lifeshare_android.network.request.AddRoomRequest;
 import com.example.lifeshare_android.util.UtilsJava;
+
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.File;
+
 import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> {
+public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
+
+    String houseId;
 
     File tempFile;
     File file;
@@ -41,7 +55,7 @@ public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> 
 
     private Uri photoURI;
 
-    AddHouseApi addHouseApi = UtilsJava.RETROFIT.create(AddHouseApi.class);
+    AddRoomApi addRoomApi = UtilsJava.RETROFIT.create(AddRoomApi.class);
 
     @Override
     protected int getLayoutId() {
@@ -53,39 +67,42 @@ public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initData();
+
         binding.addRoomBtn.setOnClickListener(v -> {
 
             RequestBody reqImage = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("image", file.getName(), reqImage);
 
-            RequestBody houseNameText = RequestBody.create(MediaType.parse("text/plain"), binding.houseNameText.getText().toString());
-            RequestBody housePlaceText = RequestBody.create(MediaType.parse("text/plain"), binding.housePlaceText.getText().toString());
-            RequestBody genderText = RequestBody.create(MediaType.parse("text/plain"), binding.genderText.getText().toString());
-            RequestBody ageLimitText = RequestBody.create(MediaType.parse("text/plain"), binding.ageLimitText.getText().toString());
-            RequestBody contractperiodText = RequestBody.create(MediaType.parse("text/plain"), binding.contractperiodText.getText().toString());
-            RequestBody maxMemberText = RequestBody.create(MediaType.parse("text/plain"), binding.maxMemberText.getText().toString());
-            RequestBody infoText = RequestBody.create(MediaType.parse("text/plain"), binding.infoText.getText().toString());
+            RequestBody houserIdText = RequestBody.create(MediaType.parse("text/plain"), houseId);
+            RequestBody memberCountText = RequestBody.create(MediaType.parse("text/plain"), binding.memberCountText.getText().toString());
+            RequestBody moneyText = RequestBody.create(MediaType.parse("text/plain"), binding.moneyText.getText().toString());
 
             Token token = new Token(this);
 
-            Call<AddHouseRequest> houseRequestCall = addHouseApi.postHouse(token.getToken(),
-                    maxMemberText, houseNameText, housePlaceText, genderText, ageLimitText, contractperiodText, infoText, part);
+            Call<AddRoomRequest> roomRequestCall = addRoomApi.postRoom(token.getToken(),
+                    houserIdText, memberCountText, moneyText, part);
 
-            houseRequestCall.enqueue(new Callback<AddHouseRequest>() {
+            roomRequestCall.enqueue(new Callback<AddRoomRequest>() {
                 @Override
-                public void onResponse(Call<AddHouseRequest> call, Response<AddHouseRequest> response) {
+                public void onResponse(Call<AddRoomRequest> call, Response<AddRoomRequest> response) {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
 
                 @Override
-                public void onFailure(Call<AddHouseRequest> call, Throwable t) {
+                public void onFailure(Call<AddRoomRequest> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "등록 오류", Toast.LENGTH_SHORT).show();
                 }
             });
         });
 
         clickEvent();
+    }
+
+    private void initData() {
+        Intent intent = getIntent();
+        houseId = intent.getStringExtra("houseId");
     }
 
     private void clickEvent() {

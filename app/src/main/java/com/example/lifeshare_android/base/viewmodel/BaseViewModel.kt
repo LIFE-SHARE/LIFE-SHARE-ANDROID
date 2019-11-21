@@ -26,8 +26,6 @@ abstract class BaseViewModel<D> protected constructor(application: Application) 
     private val userIdManager: UserIdRepository = UserIdRepository(application)
     protected val repository: RoomRepository = RoomRepository(application)
 
-    protected val backEvent = SingleLiveEvent<Unit>()
-
     val onErrorEvent: SingleLiveEvent<Throwable> = SingleLiveEvent()
     var isLoading: MutableLiveData<Boolean> = MutableLiveData()
 

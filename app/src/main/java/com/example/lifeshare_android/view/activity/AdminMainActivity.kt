@@ -28,12 +28,13 @@ class AdminMainActivity : BaseActivity<ActivityAdminMainBinding, AdminViewModel>
         with(viewModel) {
 
             searchEvent.observe(this@AdminMainActivity, Observer {
-                startActivity(Intent(this@AdminMainActivity, SearchActivity::class.java), intentActivityAnim.toBundle())
+                startActivity(Intent(this@AdminMainActivity, SearchActivity::class.java), intentRightActivityAnim.toBundle())
                 finish()
             })
 
             profileEvent.observe(this@AdminMainActivity, Observer {
-
+                startActivity(Intent(this@AdminMainActivity, ProfileActivity::class.java), intentLeftActivityAnim.toBundle())
+                finish()
             })
         }
     }

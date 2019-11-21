@@ -1,5 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
+import android.os.Bundle
+
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
@@ -26,8 +28,8 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         setUp()
         viewModel.setUp()
@@ -35,7 +37,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
 
     private fun setUp() {
         when {
-            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId")!!.toInt()
+            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getIntExtra("houseId", 0)
             else -> {
                 simpleToast("houseId Null")
             }

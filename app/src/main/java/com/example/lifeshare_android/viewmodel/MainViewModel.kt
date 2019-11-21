@@ -3,12 +3,12 @@ package com.example.lifeshare_android.viewmodel
 import android.app.Application
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
-import com.example.lifeshare_android.model.house.House
 import com.example.lifeshare_android.network.client.HouseClient
+import com.example.lifeshare_android.network.response.data.HouseDatas
 import com.example.lifeshare_android.widget.SingleLiveEvent
 import com.example.lifeshare_android.widget.recyclerview.adapter.HouseAdapter
 
-class MainViewModel(application: Application) : BaseViewModel<List<House>>(application) {
+class MainViewModel(application: Application) : BaseViewModel<HouseDatas>(application) {
 
     private val adminClient = HouseClient()
 
@@ -26,8 +26,8 @@ class MainViewModel(application: Application) : BaseViewModel<List<House>>(appli
         addDisposable(adminClient.getAllHouse(token), dataObserver)
     }
 
-    override fun onRetrieveDataSuccess(data: List<House>) {
-        houseAdapter.updateList(data)
+    override fun onRetrieveDataSuccess(data: HouseDatas) {
+        houseAdapter.updateList(data.house_data)
     }
 
     override fun onRetrieveBaseSuccess(message: String) {}

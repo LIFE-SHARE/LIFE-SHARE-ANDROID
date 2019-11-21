@@ -13,4 +13,5 @@ data class House(var id: Int,
                  var maxDeposit: Int,
                  var maxMonthly: Int,
                  var imageData: String,
-                 var rooms: List<Room>)
+                 var join_date: String,
+                 var room_data: List<Room>)

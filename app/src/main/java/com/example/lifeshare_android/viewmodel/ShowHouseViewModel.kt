@@ -23,7 +23,7 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     val address = MutableLiveData<String>()
     val genderLimit = MutableLiveData<String>()  // TODO : 0 남여 혼용, 1 남여분리, 2 남성 전용, 3 여성전용
     val ageLimit = MutableLiveData<String>()
-    val contractperiod = MutableLiveData<Int>()
+    val contractperiod = MutableLiveData<String>()
     val information = MutableLiveData<String>()
     val maxMember = MutableLiveData<String>()
     val image = MutableLiveData<String>()

@@ -62,23 +62,4 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             }
         }
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        val builder = AlertDialog.Builder(this)
-
-        builder.setTitle("종료").setMessage("종료 하시겠습니까 ?")
-
-        builder.setPositiveButton("확인") { dialog, id ->
-            Toast.makeText(applicationContext, "OK Click", Toast.LENGTH_SHORT).show()
-        }
-
-        builder.setNegativeButton("취소") { dialog, id ->
-            Toast.makeText(applicationContext, "Cancel Click", Toast.LENGTH_SHORT).show()
-        }
-
-        val alertDialog = builder.create()
-        alertDialog.show()
-    }
 }

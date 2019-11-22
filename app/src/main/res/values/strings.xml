@@ -31,7 +31,7 @@
     <string name="main_dutch_button_text">더치페이</string>
     <string name="main_remittance_button_text">보내기</string>
 
-    <string-array name = "genderLimit">
+    <string-array name="genderLimit">
         <item>"남여혼용"</item>
         <item>"남여분리"</item>
         <item>"남성전용"</item>

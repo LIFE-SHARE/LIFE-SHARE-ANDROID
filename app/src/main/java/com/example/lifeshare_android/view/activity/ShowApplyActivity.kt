@@ -31,10 +31,12 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
 
                 onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.accept(it!!)
+                    finish()
                 })
 
                 onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.refusal(it!!)
+                    finish()
                 })
             }
         }

@@ -14,4 +14,12 @@ interface ApplyApi {
     @GET("/house/apply")
     fun getApplyAll(@Header("x-access-token") token: String,
                     @Query("houseId") houseId: Int): Single<retrofit2.Response<Response<ApplyDatas>>>
+
+    @GET("/house/apply")
+    fun refusal(@Header("x-access-token") token: String,
+                @Query("applyId") applyId: Int): Single<retrofit2.Response<Response<Any>>>
+
+    @GET("/apply/accept")
+    fun accept(@Header("x-access-token") token: String,
+                @Query("applyId") applyId: Int): Single<retrofit2.Response<Response<Any>>>
 }

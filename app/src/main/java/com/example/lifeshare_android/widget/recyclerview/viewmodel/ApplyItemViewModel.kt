@@ -28,7 +28,7 @@ class ApplyItemViewModel : BaseItemViewModel<Apply, ApplyItemNavigator>() {
         else if(data.gender == 1) {
             genderText.value = "여성"
         }
-        firstInfoText.value = String.format(data.join_date.split("T")[0] + "에 " + genderText + " " + data.userAge + "세")
+        firstInfoText.value = String.format(data.join_date.split("T")[0] + "에 " + genderText.value + " " + data.userAge + "세")
         nameText.value = String.format(data.userName)
         messageText.value = String.format(data.message)
     }

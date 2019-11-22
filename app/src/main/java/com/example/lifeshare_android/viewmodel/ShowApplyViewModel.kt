@@ -20,6 +20,14 @@ class ShowApplyViewModel(application: Application) : BaseViewModel<ApplyDatas>(a
         addDisposable(applyClient.getApplyAll(token, houseId.value!!), dataObserver)
     }
 
+    fun accept(applyId: Int) {
+        addDisposable(applyClient.accept(token, applyId), baseObserver)
+    }
+
+    fun refusal(applyId: Int) {
+        addDisposable(applyClient.refusal(token, applyId), baseObserver)
+    }
+
     override fun onRetrieveDataSuccess(data: ApplyDatas) {
         applyAdapter.updateList(data.applyList)
     }

@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
 import android.os.Bundle
+
 import androidx.lifecycle.Observer
 
 import com.example.lifeshare_android.BR
@@ -29,11 +30,11 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
             with(applyAdapter) {
 
                 onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
-                    simpleToast("11111")
+                    viewModel.accept(it!!)
                 })
 
                 onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
-                    simpleToast("22222")
+                    viewModel.refusal(it!!)
                 })
             }
         }

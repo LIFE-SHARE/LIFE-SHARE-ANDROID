@@ -11,6 +11,14 @@ class ApplyClient : BaseClient<ApplyApi>() {
         return api.getApplyAll(token, houseId).map(getResponseObjectsFunction())
     }
 
+    fun accept(token: String, applyId: Int): Single<Any> {
+        return api.accept(token, applyId).map(getResponseMessageFunction())
+    }
+
+    fun refusal(token: String, applyId: Int): Single<Any> {
+        return api.refusal(token, applyId).map(getResponseMessageFunction())
+    }
+
     override fun type(): Class<ApplyApi> {
         return ApplyApi::class.java
     }

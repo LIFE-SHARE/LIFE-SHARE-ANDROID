@@ -31,11 +31,13 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
 
                 onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.accept(it!!)
+                    simpleToast("수락 되었습니다")
                     finish()
                 })
 
                 onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.refusal(it!!)
+                    simpleToast("거절 되었습니다")
                     finish()
                 })
             }

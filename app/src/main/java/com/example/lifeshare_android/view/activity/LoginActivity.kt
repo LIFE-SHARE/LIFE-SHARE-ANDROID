@@ -37,7 +37,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
             onSuccessEvent.observe(this@LoginActivity, Observer {
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java)
-                    .putExtra("userName", it))
+                    .putExtra("userName", it!!))
                 finish()
             })
         }

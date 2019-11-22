@@ -17,7 +17,7 @@ class ShowApplyViewModel(application: Application) : BaseViewModel<ApplyDatas>(a
     val houseId = SingleLiveEvent<Int>()
 
     fun setUp() {
-        addDisposable(applyClient.getApplyAll(houseId.value!!), dataObserver)
+        addDisposable(applyClient.getApplyAll(token, houseId.value!!), dataObserver)
     }
 
     override fun onRetrieveDataSuccess(data: ApplyDatas) {

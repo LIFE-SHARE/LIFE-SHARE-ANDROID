@@ -7,8 +7,8 @@ import io.reactivex.Single
 
 class ApplyClient : BaseClient<ApplyApi>() {
 
-    fun getApplyAll(houseId: Int): Single<ApplyDatas> {
-        return api.getApplyAll(houseId).map(getResponseObjectsFunction())
+    fun getApplyAll(token: String, houseId: Int): Single<ApplyDatas> {
+        return api.getApplyAll(token, houseId).map(getResponseObjectsFunction())
     }
 
     override fun type(): Class<ApplyApi> {

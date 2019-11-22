@@ -4,6 +4,7 @@ import com.example.lifeshare_android.network.response.Response
 import com.example.lifeshare_android.network.response.data.ApplyDatas
 
 import io.reactivex.Single
+import retrofit2.http.DELETE
 
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -15,11 +16,11 @@ interface ApplyApi {
     fun getApplyAll(@Header("x-access-token") token: String,
                     @Query("houseId") houseId: Int): Single<retrofit2.Response<Response<ApplyDatas>>>
 
-    @GET("/house/apply")
-    fun refusal(@Header("x-access-token") token: String,
-                @Query("applyId") applyId: Int): Single<retrofit2.Response<Response<Any>>>
-
-    @GET("/apply/accept")
+    @GET("/house/apply/accept")
     fun accept(@Header("x-access-token") token: String,
+               @Query("applyId") applyId: Int): Single<retrofit2.Response<Response<Any>>>
+
+    @DELETE("/house/apply")
+    fun refusal(@Header("x-access-token") token: String,
                 @Query("applyId") applyId: Int): Single<retrofit2.Response<Response<Any>>>
 }

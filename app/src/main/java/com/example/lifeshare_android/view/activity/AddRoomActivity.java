@@ -85,7 +85,7 @@ public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
             roomRequestCall.enqueue(new Callback<AddRoomRequest>() {
                 @Override
                 public void onResponse(Call<AddRoomRequest> call, Response<AddRoomRequest> response) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ShowHouseActivity.class));
                     finish();
                 }
 

@@ -23,7 +23,6 @@ import com.example.lifeshare_android.R;
 import com.example.lifeshare_android.base.base_java.BaseActivityJava;
 import com.example.lifeshare_android.database.sharedpreference.Token;
 import com.example.lifeshare_android.databinding.ActivityAddRoomBinding;
-import com.example.lifeshare_android.network.api.AddHouseApi;
 import com.example.lifeshare_android.network.api.AddRoomApi;
 import com.example.lifeshare_android.network.request.AddRoomRequest;
 import com.example.lifeshare_android.util.UtilsJava;

@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
+
 import android.os.Bundle
 
 import androidx.lifecycle.Observer

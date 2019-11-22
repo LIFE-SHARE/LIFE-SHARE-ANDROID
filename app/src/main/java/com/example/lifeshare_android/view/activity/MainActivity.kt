@@ -1,8 +1,12 @@
 package com.example.lifeshare_android.view.activity
 
+import android.app.AlertDialog
+
 import android.content.Intent
 
 import android.os.Bundle
+
+import android.widget.Toast
 
 import androidx.lifecycle.Observer
 
@@ -57,5 +61,24 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 viewModel.userName.value = "사용자"
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val builder = AlertDialog.Builder(this)
+
+        builder.setTitle("종료").setMessage("종료 하시겠습니까 ?")
+
+        builder.setPositiveButton("확인") { dialog, id ->
+            Toast.makeText(applicationContext, "OK Click", Toast.LENGTH_SHORT).show()
+        }
+
+        builder.setNegativeButton("취소") { dialog, id ->
+            Toast.makeText(applicationContext, "Cancel Click", Toast.LENGTH_SHORT).show()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 }

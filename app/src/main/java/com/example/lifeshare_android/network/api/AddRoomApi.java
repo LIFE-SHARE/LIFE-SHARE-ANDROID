@@ -13,7 +13,7 @@ import retrofit2.http.Part;
 public interface AddRoomApi {
 
     @Multipart
-    @POST("/house")
+    @POST("/house/room")
     Call<AddRoomRequest> postRoom(
             @Header("x-access-token") String token,
             @Part("houseId") RequestBody houseId,

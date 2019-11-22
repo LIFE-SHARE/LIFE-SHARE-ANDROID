@@ -45,7 +45,7 @@ import retrofit2.Response;
 
 public class AddRoomActivity extends BaseActivityJava<ActivityAddRoomBinding> {
 
-    String houseId = null;
+    String houseId;
 
     File tempFile;
     File file;

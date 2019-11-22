@@ -29,11 +29,11 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
             with(applyAdapter) {
 
                 onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
-
+                    simpleToast("11111")
                 })
 
                 onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
-
+                    simpleToast("22222")
                 })
             }
         }

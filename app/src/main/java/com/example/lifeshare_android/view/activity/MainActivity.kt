@@ -38,7 +38,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 openHouse.observe(this@MainActivity, Observer {
                     startActivity(Intent(this@MainActivity, ShowHouseActivity::class.java)
                         .putExtra("houseId", it!!))
-                    finish()
                 })
             }
         }

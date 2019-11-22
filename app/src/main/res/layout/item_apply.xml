@@ -17,7 +17,7 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="42dp"
         android:fontFamily="@font/nanum_squarel"
         android:text="@={viewModel.firstInfoText}"

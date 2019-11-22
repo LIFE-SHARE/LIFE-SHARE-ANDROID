@@ -35,7 +35,12 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
 
             addRoomEvent.observe(this@ShowHouseActivity, Observer {
                 startActivity(Intent(this@ShowHouseActivity, AddRoomActivity::class.java)
-                    .putExtra("houseId", viewModel.houseId.value!!.toString()))
+                    .putExtra("houseId", it!!.toString()))
+            })
+
+            applyEvent.observe(this@ShowHouseActivity, Observer {
+                startActivity(Intent(this@ShowHouseActivity, ShowApplyActivity::class.java)
+                    .putExtra("houseId", it!!.toString()))
             })
 
             with(roomAdapter) {

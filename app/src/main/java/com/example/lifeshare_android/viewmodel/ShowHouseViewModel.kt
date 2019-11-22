@@ -18,7 +18,8 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     val roomAdapter = RoomAdapter()
 
     val backEvent = SingleLiveEvent<Unit>()
-    val addRoomEvent = SingleLiveEvent<Unit>()
+    val addRoomEvent = SingleLiveEvent<Int>()
+    val applyEvent = SingleLiveEvent<Int>()
 
     val houseId = SingleLiveEvent<Int>()
 
@@ -36,7 +37,11 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     }
 
     fun onClickAddRoomBtn() {
-        addRoomEvent.call()
+        addRoomEvent.value = houseId.value!!
+    }
+
+    fun onClickApplyBtn() {
+        applyEvent.value = houseId.value!!
     }
 
     fun setUp() {

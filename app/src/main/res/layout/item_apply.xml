@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lifeshare_android.widget.recyclerview.viewmodel.ApplyItemViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="150dp">
@@ -11,11 +17,77 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/nanum_squarel"
+        android:text="@={viewModel.firstInfoText}"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="7pt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@={viewModel.nameText}"
+        android:textSize="7pt"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanum_squareb"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="님이 방문을 신청하였습니다"
+        android:textSize="7pt"
+        android:fontFamily="@font/nanum_squarel"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintStart_toEndOf="@+id/textView21"
+        app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@={viewModel.messageText}"
+        android:textSize="6pt"
+        android:fontFamily="@font/nanum_squarer"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="수락"
+        android:textSize="8pt"
+        android:textColor="@color/green"
+        android:fontFamily="@font/nanum_squareeb"
+        android:onClick="@{() -> viewModel.onClickAccept()}"
+        app:layout_constraintEnd_toStartOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="거절"
+        android:textSize="8pt"
+        android:textColor="@color/red"
+        android:fontFamily="@font/nanum_squareeb"
+        android:onClick="@{() -> viewModel.onClickRefusal()}"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

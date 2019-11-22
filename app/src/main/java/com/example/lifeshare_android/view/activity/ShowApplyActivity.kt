@@ -1,5 +1,8 @@
 package com.example.lifeshare_android.view.activity
 
+import android.os.Bundle
+import androidx.lifecycle.Observer
+
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
@@ -23,6 +26,32 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
     override fun initObserver() {
         with(viewModel) {
 
+            with(applyAdapter) {
+
+                onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
+
+                })
+
+                onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
+
+                })
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setUp()
+        viewModel.setUp()
+    }
+
+    private fun setUp() {
+        when {
+            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId").toInt()
+            else -> {
+                simpleToast("houseId : null")
+            }
         }
     }
 }

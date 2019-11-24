@@ -79,21 +79,21 @@ public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> 
 
             Token token = new Token(this);
 
-            Call<AddHouseRequest> houseRequestCall = addHouseApi.postHouse(token.getToken(),
-                    maxMemberText, houseNameText, housePlaceText, genderText, ageLimitText, contractperiodText, infoText, part);
+//            Call<AddHouseRequest> houseRequestCall = addHouseApi.postHouse(token.getToken(),
+//                    maxMemberText, houseNameText, housePlaceText, genderText, ageLimitText, contractperiodText, infoText, part);
 
-            houseRequestCall.enqueue(new Callback<AddHouseRequest>() {
-                @Override
-                public void onResponse(Call<AddHouseRequest> call, Response<AddHouseRequest> response) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
-                }
-
-                @Override
-                public void onFailure(Call<AddHouseRequest> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "등록 오류", Toast.LENGTH_SHORT).show();
-                }
-            });
+//            houseRequestCall.enqueue(new Callback<AddHouseRequest>() {
+//                @Override
+//                public void onResponse(Call<AddHouseRequest> call, Response<AddHouseRequest> response) {
+//                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                    finish();
+//                }
+//
+//                @Override
+//                public void onFailure(Call<AddHouseRequest> call, Throwable t) {
+//                    Toast.makeText(getApplicationContext(), "등록 오류", Toast.LENGTH_SHORT).show();
+//                }
+//            });
         });
 
         clickEvent();

@@ -15,9 +15,9 @@ interface AddRoomApi {
 
     @Multipart
     @POST("/house/room")
-    fun postRoom(@Header("x-access-token") token: String?,
-                 @Part("houseId") houseId: RequestBody?,
-                 @Part("people_count") peopleCnt: RequestBody?,
-                 @Part("money") money: RequestBody?,
-                 @Part image: MultipartBody.Part?): Call<AddRoomRequest?>?
+    fun postRoom(@Header("x-access-token") token: String,
+                 @Part("houseId") houseId: RequestBody,
+                 @Part("people_count") peopleCnt: RequestBody,
+                 @Part("money") money: RequestBody,
+                 @Part image: MultipartBody.Part): Call<AddRoomRequest?>?
 }

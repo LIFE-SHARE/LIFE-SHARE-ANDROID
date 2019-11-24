@@ -14,10 +14,10 @@ import retrofit2.http.Part
 interface AddHouseApi {
 
     @Multipart
-    @POST("/house/room")
-    fun postRoom(@Header("x-access-token") token: String?,
-                 @Part("houseId") houseId: RequestBody?,
-                 @Part("people_count") peopleCnt: RequestBody?,
-                 @Part("money") money: RequestBody?,
-                 @Part image: MultipartBody.Part?): Call<AddRoomRequest?>?
+    @POST("/house")
+    fun postHouse(@Header("x-access-token") token: String?,
+                  @Part("houseId") houseId: RequestBody?,
+                  @Part("people_count") peopleCnt: RequestBody?,
+                  @Part("money") money: RequestBody?,
+                  @Part image: MultipartBody.Part?): Call<AddRoomRequest?>?
 }

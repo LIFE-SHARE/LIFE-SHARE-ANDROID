@@ -3,6 +3,7 @@ package com.example.lifeshare_android.view.activity
 import android.content.Intent
 
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
@@ -33,53 +34,30 @@ class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseV
         with(viewModel) {
 
             addImageEvent.observe(this@AddHouseActivity2, Observer {
+                tedPermission()
                 goToAlbum()
             })
 
             addHouseEvent.observe(this@AddHouseActivity2, Observer {
-//                val reqImage: RequestBody = RequestBody.create(parse("image/*"), file)
-//                val part: MultipartBody.Part = MultipartBody.Part.createFormData("image", file.getName(), reqImage)
-//
-//                val houseNameText: RequestBody = RequestBody.create(parse.("text/plain"), binding.houseNameText.text.toString())
-//                val housePlaceText: RequestBody = RequestBody.create(parse.("text/plain"), binding.housePlaceText.text.toString())
-//                val genderText: RequestBody = RequestBody.create(parse.("text/plain"), binding.genderText.text.toString())
-//                val ageLimitText: RequestBody = RequestBody.create(parse.("text/plain"), binding.ageLimitText.text.toString())
-//                val contractperiodText: RequestBody = RequestBody.create(parse.("text/plain"), binding.contractperiodText.text.toString())
-//                val maxMemberText: RequestBody = RequestBody.create(parse.("text/plain"), binding.maxMemberText.text.toString())
-//                val infoText: RequestBody = RequestBody.create(parse.("text/plain"), binding.infoText.text.toString())
+                addPostHouse()
+            })
 
-                val token = Token(applicationContext)
-
-//            Call<> houseRequestCall = addHouseApi.postHouse(token.getToken(),
-//                    maxMemberText, houseNameText, housePlaceText, genderText, ageLimitText, contractperiodText, infoText, part);
-
-//            houseRequestCall.enqueue(new Callback<>() {
-//                @Override
-//                public void onResponse(Call<> call, Response<> response) {
-//                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                    finish();
-//                }
-//
-//                @Override
-//                public void onFailure(Call<> call, Throwable t) {
-//                    Toast.makeText(getApplicationContext(), "등록 오류", Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            goToCrop.observe(this@AddHouseActivity2, Observer {
+                goToCropPage(viewModel.tempPictureUri.value, viewModel.pictureUri.value)
             })
         }
     }
 
     override fun requestNotOkEvent() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        viewModel.deleteFile()
     }
 
     override fun pickNextEvent(data: Intent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        viewModel.savePickData(data)
+        viewModel.cropImage()
     }
 
     override fun cropNextEvent() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Glide.with(this).load(viewModel.pictureUri.value).into(binding.houseImage)
     }
-
-
 }

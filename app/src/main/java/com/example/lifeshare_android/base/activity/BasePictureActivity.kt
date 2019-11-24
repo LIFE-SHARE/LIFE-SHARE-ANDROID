@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.base.activity
 
 import android.Manifest
+import android.app.Activity
 
 import android.content.Intent
 
@@ -30,21 +31,18 @@ import java.util.*
 
 abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : BaseActivity<VB, VM>() {
 
-    var tempFile: File? = null
-    var file: File? = null
-    var imageList = arrayOfNulls<Bitmap>(1)
+//    var tempFile: File? = null
+//    var file: File? = null
+//    var imageList = arrayOfNulls<Bitmap>(1)
+//
+//    private val PICK_FROM_ALBUM = 1
+//
+//    private val photoURI: Uri? = null
 
     private val PICK_FROM_ALBUM = 1
+    private val REQUEST_IMAGE_CROP = 2
 
-    private val photoURI: Uri? = null
-
-    protected fun goToAlbum() {
-        tedPermission()
-
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = MediaStore.Images.Media.CONTENT_TYPE
-        startActivityForResult(intent, PICK_FROM_ALBUM)
-    }
+    private var bitmap: Bitmap? = null
 
     protected fun tedPermission() {
         val permissionListener: PermissionListener = object : PermissionListener {
@@ -59,36 +57,72 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
             .check()
     }
 
+    protected fun goToAlbum() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = MediaStore.Images.Media.CONTENT_TYPE
+        startActivityForResult(intent, PICK_FROM_ALBUM)
+    }
+
+    protected fun goToCropPage(tempUri: Uri?, uri: Uri?) {
+        val cropIntent = Intent("com.android.camera.action.CROP")
+        cropIntent.flags = Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        cropIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        cropIntent.setDataAndType(tempUri, "image/*")
+        cropIntent.putExtra("aspectX", 1)
+        cropIntent.putExtra("aspectY", 1)
+        cropIntent.putExtra("scale", true)
+        cropIntent.putExtra("output", uri)
+        startActivityForResult(cropIntent, REQUEST_IMAGE_CROP)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_FROM_ALBUM) {
-            val photoUri = data!!.data
-            var cursor: Cursor? = null
-            try {
-                val proj = arrayOf(MediaStore.Images.Media.DATA)
-                assert(photoUri != null)
-                cursor = contentResolver.query(photoUri!!, proj, null, null, null)
-                assert(cursor != null)
-                val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-                cursor.moveToFirst()
-                tempFile = File(cursor.getString(column_index))
-            } catch (e: Exception) {
-                Log.d("TAG", e.message + "")
-            } finally {
-                cursor?.close()
+        if (resultCode != Activity.RESULT_OK) {
+            requestNotOkEvent()
+        }
+        when (requestCode) {
+            PICK_FROM_ALBUM -> {
+                if (data == null) {
+                    return
+                }
+                pickNextEvent(data)
             }
-            setImage()
+            REQUEST_IMAGE_CROP -> {
+                cropNextEvent()
+            }
         }
     }
 
-    private fun setImage() {
-        val options = BitmapFactory.Options()
-        val bitmap = BitmapFactory.decodeFile(tempFile!!.absolutePath, options)
-        Log.d("LOG", tempFile!!.absolutePath) // -> 파일 경로
-        imageList[0] = bitmap
-        file = File(tempFile!!.absolutePath)
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == PICK_FROM_ALBUM) {
+//            val photoUri = data!!.data
+//            var cursor: Cursor? = null
+//            try {
+//                val proj = arrayOf(MediaStore.Images.Media.DATA)
+//                assert(photoUri != null)
+//                cursor = contentResolver.query(photoUri!!, proj, null, null, null)
+//                assert(cursor != null)
+//                val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+//                cursor.moveToFirst()
+//                tempFile = File(cursor.getString(column_index))
+//            } catch (e: Exception) {
+//                Log.d("TAG", e.message + "")
+//            } finally {
+//                cursor?.close()
+//            }
+//            setImage()
+//        }
+//    }
+
+//    private fun setImage() {
+//        val options = BitmapFactory.Options()
+//        val bitmap = BitmapFactory.decodeFile(tempFile!!.absolutePath, options)
+//        Log.d("LOG", tempFile!!.absolutePath) // -> 파일 경로
+//        imageList[0] = bitmap
+//        file = File(tempFile!!.absolutePath)
 //        binding.houseImage.setImageBitmap(imageList[0])
-    }
+//    }
 
     protected abstract fun requestNotOkEvent()
 

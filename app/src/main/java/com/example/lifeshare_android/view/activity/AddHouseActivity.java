@@ -24,7 +24,6 @@ import com.example.lifeshare_android.base.base_java.BaseActivityJava;
 import com.example.lifeshare_android.database.sharedpreference.Token;
 import com.example.lifeshare_android.databinding.ActivityAddHouseBinding;
 import com.example.lifeshare_android.network.api.AddHouseApi;
-import com.example.lifeshare_android.network.request.AddHouseRequest;
 import com.example.lifeshare_android.util.UtilsJava;
 
 import com.gun0912.tedpermission.PermissionListener;
@@ -79,18 +78,18 @@ public class AddHouseActivity extends BaseActivityJava<ActivityAddHouseBinding> 
 
             Token token = new Token(this);
 
-//            Call<AddHouseRequest> houseRequestCall = addHouseApi.postHouse(token.getToken(),
+//            Call<> houseRequestCall = addHouseApi.postHouse(token.getToken(),
 //                    maxMemberText, houseNameText, housePlaceText, genderText, ageLimitText, contractperiodText, infoText, part);
 
-//            houseRequestCall.enqueue(new Callback<AddHouseRequest>() {
+//            houseRequestCall.enqueue(new Callback<>() {
 //                @Override
-//                public void onResponse(Call<AddHouseRequest> call, Response<AddHouseRequest> response) {
+//                public void onResponse(Call<> call, Response<> response) {
 //                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
 //                    finish();
 //                }
 //
 //                @Override
-//                public void onFailure(Call<AddHouseRequest> call, Throwable t) {
+//                public void onFailure(Call<> call, Throwable t) {
 //                    Toast.makeText(getApplicationContext(), "등록 오류", Toast.LENGTH_SHORT).show();
 //                }
 //            });

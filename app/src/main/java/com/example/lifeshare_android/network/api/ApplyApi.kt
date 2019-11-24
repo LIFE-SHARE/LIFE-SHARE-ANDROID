@@ -4,8 +4,8 @@ import com.example.lifeshare_android.network.response.Response
 import com.example.lifeshare_android.network.response.data.ApplyDatas
 
 import io.reactivex.Single
-import retrofit2.http.DELETE
 
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query

@@ -24,7 +24,6 @@ import com.example.lifeshare_android.base.base_java.BaseActivityJava;
 import com.example.lifeshare_android.database.sharedpreference.Token;
 import com.example.lifeshare_android.databinding.ActivityAddRoomBinding;
 import com.example.lifeshare_android.network.api.AddRoomApi;
-import com.example.lifeshare_android.network.request.AddRoomRequest;
 import com.example.lifeshare_android.util.UtilsJava;
 
 import com.gun0912.tedpermission.PermissionListener;

@@ -261,6 +261,7 @@
                 android:textSize="9pt"
                 android:textColor="@color/black"
                 android:fontFamily="@font/nanum_squareeb"
+                android:onClick="@{}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/info_text" />

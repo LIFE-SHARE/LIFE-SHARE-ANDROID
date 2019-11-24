@@ -1,8 +1,10 @@
 package com.example.lifeshare_android.base.base_java;
 
 import android.content.Intent;
+
 import android.os.Build;
 import android.os.Bundle;
+
 import android.widget.Toast;
 
 import androidx.annotation.LayoutRes;

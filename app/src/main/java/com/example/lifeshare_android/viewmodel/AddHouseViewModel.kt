@@ -23,7 +23,7 @@ import java.util.*
 
 class AddHouseViewModel(application: Application) : BaseViewModel<Any>(application) {
 
-    val houseClient = HouseClient()
+    private val houseClient = HouseClient()
 
     val addImageEvent = SingleLiveEvent<Unit>()
     val addHouseEvent = SingleLiveEvent<Unit>()

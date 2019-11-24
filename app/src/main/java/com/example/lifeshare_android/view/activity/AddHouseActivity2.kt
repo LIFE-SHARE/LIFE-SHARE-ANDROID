@@ -2,10 +2,6 @@ package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
 
-import android.graphics.Bitmap
-
-import android.net.Uri
-
 import androidx.lifecycle.Observer
 
 import com.example.lifeshare_android.BR
@@ -16,12 +12,6 @@ import com.example.lifeshare_android.databinding.ActivityAddHouseBinding
 import com.example.lifeshare_android.network.api.AddHouseApi
 import com.example.lifeshare_android.util.UtilsJava
 import com.example.lifeshare_android.viewmodel.AddHouseViewModel
-
-import okhttp3.MediaType.Companion.parse
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-
-import java.io.File
 
 class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseViewModel>() {
 

@@ -25,8 +25,8 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     private val houseClient = HouseClient()
 
-    val addImageEvent = SingleLiveEvent<Unit>()
     val addHouseEvent = SingleLiveEvent<Unit>()
+    val goToAlbum = SingleLiveEvent<Unit>()
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
 
@@ -40,7 +40,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     }
 
     fun addInputImageBtn() {
-        addImageEvent.call()
+        goToAlbum.call()
     }
 
     fun addHouseBtn() {

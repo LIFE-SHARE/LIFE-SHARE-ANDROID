@@ -65,8 +65,7 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
             val photoUri = data!!.data
             var cursor: Cursor? = null
             try {
-                val proj =
-                    arrayOf(MediaStore.Images.Media.DATA)
+                val proj = arrayOf(MediaStore.Images.Media.DATA)
                 assert(photoUri != null)
                 cursor = contentResolver.query(photoUri!!, proj, null, null, null)
                 assert(cursor != null)

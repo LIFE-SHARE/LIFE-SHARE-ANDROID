@@ -90,4 +90,6 @@ class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseV
     override fun cropNextEvent() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+
 }

@@ -57,9 +57,10 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     }
 
     private fun createFile() {
-        val file = File(Environment.getExternalStorageDirectory().toString() + "/Weknot/Profile")
+        val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House")
         if (!file.exists()) file.mkdirs()
-        pictureFile.value = File(Environment.getExternalStorageDirectory().toString() + "/Weknot/Profile" + Random().nextInt(999999999).toString() + ".jpg")
+        pictureFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House"
+                + Random().nextInt(999999999).toString() + ".jpg")
         try {
             pictureFile.value!!.createNewFile()
         } catch (e: IOException) {

@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.lifeshare_android.database.repository.RoomRepository
 import com.example.lifeshare_android.database.repository.TokenRepository
 import com.example.lifeshare_android.database.repository.UserIdRepository
-
 import com.example.lifeshare_android.widget.SingleLiveEvent
 
 import io.reactivex.Single

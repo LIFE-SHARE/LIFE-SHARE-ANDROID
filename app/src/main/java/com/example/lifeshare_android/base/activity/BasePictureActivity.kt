@@ -27,8 +27,8 @@ import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 
 import java.io.IOException
-
 import java.io.InputStream
+
 import java.net.HttpURLConnection
 import java.net.URL
 

@@ -3,11 +3,12 @@ package com.example.lifeshare_android.widget.recyclerview.viewholder
 import com.example.lifeshare_android.base.BaseViewHolder
 import com.example.lifeshare_android.databinding.ItemApplyBinding
 import com.example.lifeshare_android.model.apply.Apply
-import com.example.lifeshare_android.widget.recyclerview.navigator.ApplyAdapterNavigator
-import com.example.lifeshare_android.widget.recyclerview.navigator.ApplyItemNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.apply.ApplyAdapterNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.apply.ApplyItemNavigator
 import com.example.lifeshare_android.widget.recyclerview.viewmodel.ApplyItemViewModel
 
-class ApplyViewHolder(val binding: ItemApplyBinding) : BaseViewHolder<ApplyAdapterNavigator>(binding.root), ApplyItemNavigator {
+class ApplyViewHolder(val binding: ItemApplyBinding) : BaseViewHolder<ApplyAdapterNavigator>(binding.root),
+    ApplyItemNavigator {
 
     private val viewModel = ApplyItemViewModel()
 

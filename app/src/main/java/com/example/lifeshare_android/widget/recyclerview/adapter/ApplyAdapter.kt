@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.model.apply.Apply
 import com.example.lifeshare_android.widget.SingleLiveEvent
-import com.example.lifeshare_android.widget.recyclerview.navigator.ApplyAdapterNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.apply.ApplyAdapterNavigator
 import com.example.lifeshare_android.widget.recyclerview.viewholder.ApplyViewHolder
 
-class ApplyAdapter : RecyclerView.Adapter<ApplyViewHolder>(), ApplyAdapterNavigator {
+class ApplyAdapter : RecyclerView.Adapter<ApplyViewHolder>(),
+    ApplyAdapterNavigator {
 
     val onClickAcceptEvent = SingleLiveEvent<Int>()
     val onClickRefusalEvent = SingleLiveEvent<Int>()

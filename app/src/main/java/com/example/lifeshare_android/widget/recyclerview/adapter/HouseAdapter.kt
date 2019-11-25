@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.model.house.House
 import com.example.lifeshare_android.widget.SingleLiveEvent
-import com.example.lifeshare_android.widget.recyclerview.navigator.HouseAdapterNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.house.HouseAdapterNavigator
 import com.example.lifeshare_android.widget.recyclerview.viewholder.HouseViewHolder
 
-class HouseAdapter : RecyclerView.Adapter<HouseViewHolder>(), HouseAdapterNavigator {
+class HouseAdapter : RecyclerView.Adapter<HouseViewHolder>(),
+    HouseAdapterNavigator {
 
     val openHouse = SingleLiveEvent<Int>()
 

@@ -3,7 +3,7 @@ package com.example.lifeshare_android.widget.recyclerview.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.example.lifeshare_android.base.viewmodel.BaseItemViewModel
 import com.example.lifeshare_android.model.apply.Apply
-import com.example.lifeshare_android.widget.recyclerview.navigator.ApplyItemNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.apply.ApplyItemNavigator
 
 class ApplyItemViewModel : BaseItemViewModel<Apply, ApplyItemNavigator>() {
 

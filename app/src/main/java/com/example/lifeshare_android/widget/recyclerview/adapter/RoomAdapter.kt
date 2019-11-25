@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.model.room.Room
 import com.example.lifeshare_android.widget.SingleLiveEvent
-import com.example.lifeshare_android.widget.recyclerview.navigator.RoomAdapterNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.room.RoomAdapterNavigator
 import com.example.lifeshare_android.widget.recyclerview.viewholder.RoomViewHolder
 
-class RoomAdapter : RecyclerView.Adapter<RoomViewHolder>(), RoomAdapterNavigator {
+class RoomAdapter : RecyclerView.Adapter<RoomViewHolder>(),
+    RoomAdapterNavigator {
 
     val openRoom = SingleLiveEvent<Int>()
 

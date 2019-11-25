@@ -36,7 +36,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     private val picture = MutableLiveData<MultipartBody.Part>()
 
     fun addPostHouse() {
-//        addDisposable()
+//        addDisposable(houseClient.addPostHouse(token), baseObserver)
     }
 
     fun addInputImageBtn() {

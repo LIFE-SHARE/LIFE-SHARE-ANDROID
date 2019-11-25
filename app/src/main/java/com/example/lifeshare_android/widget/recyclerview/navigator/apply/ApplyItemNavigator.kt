@@ -1,4 +1,4 @@
-package com.example.lifeshare_android.widget.recyclerview.navigator
+package com.example.lifeshare_android.widget.recyclerview.navigator.apply
 
 interface ApplyItemNavigator {
 

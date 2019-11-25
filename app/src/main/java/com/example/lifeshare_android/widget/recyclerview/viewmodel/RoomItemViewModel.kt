@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.lifeshare_android.base.viewmodel.BaseItemViewModel
 import com.example.lifeshare_android.model.room.Room
 import com.example.lifeshare_android.util.Strings
-import com.example.lifeshare_android.widget.recyclerview.navigator.RoomItemNavigator
+import com.example.lifeshare_android.widget.recyclerview.navigator.room.RoomItemNavigator
 
 class RoomItemViewModel : BaseItemViewModel<Room, RoomItemNavigator>() {
 

@@ -12,7 +12,7 @@ import com.example.lifeshare_android.base.activity.BasePictureActivity
 import com.example.lifeshare_android.databinding.ActivityAddHouseBinding
 import com.example.lifeshare_android.viewmodel.AddHouseViewModel
 
-class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseViewModel>() {
+class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseViewModel>() {
 
     override fun getLayoutId(): Int {
         return R.layout.activity_add_house
@@ -29,24 +29,24 @@ class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseV
     override fun initObserver() {
         with(viewModel) {
 
-            backMessageToast.observe(this@AddHouseActivity2, Observer {
+            backMessageToast.observe(this@AddHouseActivity, Observer {
                 simpleToast("취소 되었습니다")
             })
 
-            nullPointEvent.observe(this@AddHouseActivity2, Observer {
+            nullPointEvent.observe(this@AddHouseActivity, Observer {
                 simpleToast("사진을 설정해주세요")
             })
 
-            goToAlbum.observe(this@AddHouseActivity2, Observer {
+            goToAlbum.observe(this@AddHouseActivity, Observer {
                 tedPermission()
                 goToAlbum()
             })
 
-            goToCrop.observe(this@AddHouseActivity2, Observer {
+            goToCrop.observe(this@AddHouseActivity, Observer {
                 goToCropPage(viewModel.tempPictureUri.value, viewModel.pictureUri.value)
             })
 
-            addHouseEvent.observe(this@AddHouseActivity2, Observer {
+            addHouseEvent.observe(this@AddHouseActivity, Observer {
                 addPostHouse()
             })
         }

@@ -32,7 +32,7 @@ fun setMutableImageUrl(view: ImageView, url: MutableLiveData<String>?) {
 
     val requestOptions: RequestOptions by lazy {
         RequestOptions()
-            .error(R.drawable.user_icon)
+            .error(R.drawable.none_image)
             .transforms(CenterCrop())
     }
 
@@ -44,7 +44,7 @@ fun setMutableImageUrl(view: ImageView, url: MutableLiveData<String>?) {
     }
     else {
         Glide.with(view.context)
-            .load(R.drawable.user_icon)
+            .load(R.drawable.none_image)
             .into(view)
     }
 }
@@ -55,7 +55,7 @@ fun setMutableImageUri(view: ImageView, uri: MutableLiveData<Uri>?) {
 
     val requestOptions: RequestOptions by lazy {
         RequestOptions()
-            .error(R.drawable.user_icon)
+            .error(R.drawable.none_image)
             .transforms(CenterCrop())
     }
 
@@ -67,7 +67,7 @@ fun setMutableImageUri(view: ImageView, uri: MutableLiveData<Uri>?) {
     }
     else {
         Glide.with(view.context)
-            .load(R.drawable.user_icon)
+            .load(R.drawable.none_image)
             .into(view)
     }
 }

@@ -192,6 +192,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.name}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -216,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.address}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -240,6 +242,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.genderLimit}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -264,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.ageLimit}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -288,6 +292,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.contractperiod}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -312,6 +317,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.maxMember}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -337,6 +343,7 @@
                     android:layout_height="match_parent"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="date"
+                    android:text="@{viewModel.request.information}"
                     android:privateImeOptions="nm" />
 
             </com.google.android.material.textfield.TextInputLayout>

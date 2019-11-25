@@ -29,6 +29,10 @@ class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseV
     override fun initObserver() {
         with(viewModel) {
 
+            nullPointEvent.observe(this@AddHouseActivity2, Observer {
+                simpleToast("사진을 설정해주세요")
+            })
+
             goToAlbum.observe(this@AddHouseActivity2, Observer {
                 tedPermission()
                 goToAlbum()

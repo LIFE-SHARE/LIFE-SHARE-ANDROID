@@ -12,12 +12,17 @@ import androidx.lifecycle.MutableLiveData
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 import com.example.lifeshare_android.network.client.HouseClient
+import com.example.lifeshare_android.network.request.AddHouseRequest
 import com.example.lifeshare_android.widget.SingleLiveEvent
 
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 import java.io.File
 import java.io.IOException
+
+import java.lang.NullPointerException
 
 import java.util.*
 
@@ -25,17 +30,29 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     private val houseClient = HouseClient()
 
+    val request = AddHouseRequest()
+
     val addHouseEvent = SingleLiveEvent<Unit>()
     val goToAlbum = SingleLiveEvent<Unit>()
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
+    val nullPointEvent = SingleLiveEvent<Unit>()
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
     private val pictureFile = MutableLiveData<File>()
     private val picture = MutableLiveData<MultipartBody.Part>()
+    private val userid = MutableLiveData<RequestBody>()
+    private val name = MutableLiveData<RequestBody>()
+    private val address = MutableLiveData<RequestBody>()
+    private val genderLimit = MutableLiveData<RequestBody>()
+    private val ageLimit = MutableLiveData<RequestBody>()
+    private val contractperiod = MutableLiveData<RequestBody>()
+    private val maxMember = MutableLiveData<RequestBody>()
+    private val information = MutableLiveData<RequestBody>()
 
     fun addPostHouse() {
+        if(!setRequest()) return
 //        addDisposable(houseClient.addPostHouse(token), baseObserver)
     }
 
@@ -67,6 +84,27 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
             e.printStackTrace()
         }
         pictureUri.value = Uri.fromFile(pictureFile.value)
+    }
+
+    private fun setRequest(): Boolean {
+        try {
+            val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), pictureFile.value!!)
+            picture.value = MultipartBody.Part.createFormData("photo", pictureFile.value!!.name, requestFile)
+            userid.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.userid)
+            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
+            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
+            address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)
+            genderLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.genderLimit)
+            ageLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.ageLimit.toString())
+            contractperiod.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.contractperiod)
+            maxMember.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.maxMember.toString())
+            information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.information)
+        }
+        catch (e: NullPointerException) {
+            nullPointEvent.call()
+            return false
+        }
+        return true
     }
 
     fun deleteFile() {

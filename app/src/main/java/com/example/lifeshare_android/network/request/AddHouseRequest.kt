@@ -1,13 +1,14 @@
 package com.example.lifeshare_android.network.request
 
-class AddHouseRequest {
-    var userId: String? = null
-    var name: String? = null
-    var address: String? = null
-    var genderLimit: String? = null
-    var ageLimit = 0
-    var contractperiod: String? = null
-    var maxMember = 0
-    var information: String? = null
-    var image: String? = null
+class AddHouseRequest(var userid: String,
+                      var name: String,
+                      var address: String,
+                      var genderLimit: String,
+                      var ageLimit: Int,
+                      var contractperiod: String,
+                      var maxMember: Int,
+                      var information: String,
+                      var image: String) {
+
+    constructor() : this("", "", "", "", 0 ,"", 0, "", "")
 }

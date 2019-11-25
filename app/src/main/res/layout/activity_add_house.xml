@@ -67,7 +67,8 @@
                 android:onClick="@{() -> viewModel.addInputImageBtn()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
             <ImageView
                 android:id="@+id/house_image"
@@ -90,7 +91,8 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/house_image" />
+                app:layout_constraintTop_toBottomOf="@+id/house_image"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/place_title"
@@ -115,7 +117,8 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="@+id/place_title"
-                app:layout_constraintTop_toBottomOf="@+id/place_title" />
+                app:layout_constraintTop_toBottomOf="@+id/place_title"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/age_title"
@@ -127,7 +130,8 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="@+id/gender_title"
-                app:layout_constraintTop_toBottomOf="@+id/gender_title" />
+                app:layout_constraintTop_toBottomOf="@+id/gender_title"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -139,7 +143,8 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="@+id/age_title"
-                app:layout_constraintTop_toBottomOf="@+id/age_title" />
+                app:layout_constraintTop_toBottomOf="@+id/age_title"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -151,7 +156,8 @@
                 android:textSize="11pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -163,7 +169,8 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                tools:ignore="HardcodedText" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_house_name"
@@ -349,7 +356,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/input_layout_house_information" />
+                app:layout_constraintTop_toBottomOf="@+id/input_layout_house_information"
+                tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

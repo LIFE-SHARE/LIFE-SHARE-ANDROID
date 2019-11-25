@@ -40,8 +40,8 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
-    private val pictureFile = MutableLiveData<File>()
-    private val picture = MutableLiveData<MultipartBody.Part>()
+    private val imageFile = MutableLiveData<File>()
+    private val image = MutableLiveData<MultipartBody.Part>()
     private val name = MutableLiveData<RequestBody>()
     private val address = MutableLiveData<RequestBody>()
     private val genderLimit = MutableLiveData<RequestBody>()
@@ -54,7 +54,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         if(!setRequest()) return
         addDisposable(houseClient.addPostHouse(
             token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
-            contractperiod.value!!, maxMember.value!!, information.value!!, picture.value!!), baseObserver)
+            contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!), baseObserver)
     }
 
     fun savePickData(data: Intent) {
@@ -69,20 +69,20 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     private fun createFile() {
         val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House")
         if (!file.exists()) file.mkdirs()
-        pictureFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House"
+        imageFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House"
                 + Random().nextInt(999999999).toString() + ".jpg")
         try {
-            pictureFile.value!!.createNewFile()
+            imageFile.value!!.createNewFile()
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        pictureUri.value = Uri.fromFile(pictureFile.value)
+        pictureUri.value = Uri.fromFile(imageFile.value)
     }
 
     private fun setRequest(): Boolean {
         try {
-            val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), pictureFile.value!!)
-            picture.value = MultipartBody.Part.createFormData("photo", pictureFile.value!!.name, requestFile)
+            val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
+            image.value = MultipartBody.Part.createFormData("photo", imageFile.value!!.name, requestFile)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)
@@ -101,7 +101,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     fun deleteFile() {
         tempPictureUri.value = null
-        pictureFile.value = null
+        imageFile.value = null
         pictureUri.value = null
         backMessageToast.call()
     }

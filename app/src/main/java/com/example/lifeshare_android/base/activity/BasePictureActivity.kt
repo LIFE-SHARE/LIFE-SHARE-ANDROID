@@ -96,7 +96,7 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
 
     protected abstract fun cropNextEvent()
 
-    protected open fun setBitmap(bitmap: Bitmap?) { }
+    protected open fun setBitmap(bitmap: Bitmap?) {}
 
     @SuppressLint("StaticFieldLeak")
     inner class BitmapTask : AsyncTask<String?, Int?, Bitmap?>() {

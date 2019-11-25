@@ -51,10 +51,15 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     private val information = MutableLiveData<RequestBody>()
 
     fun addPostHouse() {
-        if(!setRequest()) return
-        addDisposable(houseClient.addPostHouse(
-            token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
-            contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!), baseObserver)
+        when {
+            !setRequest() -> return
+            else -> addDisposable(
+                houseClient.addPostHouse(
+                    token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
+                    contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!
+                ), baseObserver
+            )
+        }
     }
 
     fun savePickData(data: Intent) {

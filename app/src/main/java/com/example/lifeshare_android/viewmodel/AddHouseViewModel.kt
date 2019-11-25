@@ -53,7 +53,9 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     fun addPostHouse() {
         if(!setRequest()) return
-//        addDisposable(houseClient.addPostHouse(token), baseObserver)
+        addDisposable(houseClient.addPostHouse(
+            token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
+            contractperiod.value!!, maxMember.value!!, information.value!!, picture.value!!), baseObserver)
     }
 
     fun addInputImageBtn() {
@@ -90,7 +92,6 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), pictureFile.value!!)
             picture.value = MultipartBody.Part.createFormData("photo", pictureFile.value!!.name, requestFile)
-            userid.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.userid)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)

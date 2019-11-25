@@ -1,7 +1,6 @@
 package com.example.lifeshare_android.network.request
 
-class AddHouseRequest(var userid: String,
-                      var name: String,
+class AddHouseRequest(var name: String,
                       var address: String,
                       var genderLimit: String,
                       var ageLimit: Int,
@@ -10,5 +9,5 @@ class AddHouseRequest(var userid: String,
                       var information: String,
                       var image: String) {
 
-    constructor() : this("", "", "", "", 0 ,"", 0, "", "")
+    constructor() : this("", "", "", 0, "",0, "", "")
 }

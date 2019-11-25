@@ -56,9 +56,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
             else -> addDisposable(
                 houseClient.addPostHouse(
                     token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
-                    contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!
-                ), baseObserver
-            )
+                    contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!), baseObserver)
         }
     }
 

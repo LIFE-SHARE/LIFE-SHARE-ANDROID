@@ -29,6 +29,10 @@ class AddHouseActivity2 : BasePictureActivity<ActivityAddHouseBinding, AddHouseV
     override fun initObserver() {
         with(viewModel) {
 
+            backMessageToast.observe(this@AddHouseActivity2, Observer {
+                simpleToast("취소 되었습니다")
+            })
+
             nullPointEvent.observe(this@AddHouseActivity2, Observer {
                 simpleToast("사진을 설정해주세요")
             })

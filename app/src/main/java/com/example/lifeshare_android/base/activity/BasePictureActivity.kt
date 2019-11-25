@@ -1,20 +1,19 @@
 package com.example.lifeshare_android.base.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
+
 import android.app.Activity
 
 import android.content.Intent
-
-import android.database.Cursor
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 
 import android.net.Uri
+import android.os.AsyncTask
 
 import android.provider.MediaStore
-
-import android.util.Log
 
 import android.widget.Toast
 
@@ -24,20 +23,14 @@ import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
-
-import java.io.File
+import java.io.IOException
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 import java.util.*
 
 abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : BaseActivity<VB, VM>() {
-
-//    var tempFile: File? = null
-//    var file: File? = null
-//    var imageList = arrayOfNulls<Bitmap>(1)
-//
-//    private val PICK_FROM_ALBUM = 1
-//
-//    private val photoURI: Uri? = null
 
     private val PICK_FROM_ALBUM = 1
     private val REQUEST_IMAGE_CROP = 2
@@ -75,6 +68,10 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
         startActivityForResult(cropIntent, REQUEST_IMAGE_CROP)
     }
 
+    protected fun initBitmapImage(src: String?) {
+        BitmapTask().execute(src)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_OK) {
@@ -93,40 +90,33 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
         }
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == PICK_FROM_ALBUM) {
-//            val photoUri = data!!.data
-//            var cursor: Cursor? = null
-//            try {
-//                val proj = arrayOf(MediaStore.Images.Media.DATA)
-//                assert(photoUri != null)
-//                cursor = contentResolver.query(photoUri!!, proj, null, null, null)
-//                assert(cursor != null)
-//                val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-//                cursor.moveToFirst()
-//                tempFile = File(cursor.getString(column_index))
-//            } catch (e: Exception) {
-//                Log.d("TAG", e.message + "")
-//            } finally {
-//                cursor?.close()
-//            }
-//            setImage()
-//        }
-//    }
-
-//    private fun setImage() {
-//        val options = BitmapFactory.Options()
-//        val bitmap = BitmapFactory.decodeFile(tempFile!!.absolutePath, options)
-//        Log.d("LOG", tempFile!!.absolutePath) // -> 파일 경로
-//        imageList[0] = bitmap
-//        file = File(tempFile!!.absolutePath)
-//        binding.houseImage.setImageBitmap(imageList[0])
-//    }
-
     protected abstract fun requestNotOkEvent()
 
     protected abstract fun pickNextEvent(data: Intent)
 
     protected abstract fun cropNextEvent()
+
+    protected open fun setBitmap(bitmap: Bitmap?) { }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class BitmapTask : AsyncTask<String?, Int?, Bitmap?>() {
+        override fun doInBackground(vararg url: String?): Bitmap? {
+            var bitmap: Bitmap? = null
+            try {
+                val myFileUrl = URL(url[0])
+                val conn = myFileUrl.openConnection() as HttpURLConnection
+                conn.doInput = true
+                conn.connect()
+                val inputStream: InputStream? = conn.inputStream
+                bitmap = BitmapFactory.decodeStream(inputStream)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            return bitmap
+        }
+
+        override fun onPostExecute(bitmap: Bitmap?) {
+            setBitmap(bitmap)
+        }
+    }
 }

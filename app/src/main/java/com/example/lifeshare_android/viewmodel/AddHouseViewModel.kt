@@ -42,7 +42,6 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     val pictureUri = MutableLiveData<Uri>()
     private val pictureFile = MutableLiveData<File>()
     private val picture = MutableLiveData<MultipartBody.Part>()
-    private val userid = MutableLiveData<RequestBody>()
     private val name = MutableLiveData<RequestBody>()
     private val address = MutableLiveData<RequestBody>()
     private val genderLimit = MutableLiveData<RequestBody>()
@@ -56,14 +55,6 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         addDisposable(houseClient.addPostHouse(
             token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
             contractperiod.value!!, maxMember.value!!, information.value!!, picture.value!!), baseObserver)
-    }
-
-    fun addInputImageBtn() {
-        goToAlbum.call()
-    }
-
-    fun addHouseBtn() {
-        addHouseEvent.call()
     }
 
     fun savePickData(data: Intent) {
@@ -113,6 +104,14 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         pictureFile.value = null
         pictureUri.value = null
         backMessageToast.call()
+    }
+
+    fun onClickInputImageBtn() {
+        goToAlbum.call()
+    }
+
+    fun onClickAddHouseBtn() {
+        addHouseEvent.call()
     }
 
     override fun onRetrieveDataSuccess(data: Any) {}

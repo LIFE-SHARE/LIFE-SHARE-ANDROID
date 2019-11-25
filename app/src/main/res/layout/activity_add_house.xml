@@ -74,6 +74,7 @@
                 android:id="@+id/house_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:src="@drawable/none_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/input_img"

@@ -57,6 +57,4 @@ class LoginViewModel(application: Application) : BaseViewModel<LoginData>(applic
         insertLoginData(data)
         onSuccessEvent.value = data.member.name
     }
-
-    override fun onRetrieveBaseSuccess(message: String) {}
 }

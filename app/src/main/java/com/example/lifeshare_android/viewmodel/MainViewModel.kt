@@ -29,6 +29,4 @@ class MainViewModel(application: Application) : BaseViewModel<HouseDatas>(applic
     override fun onRetrieveDataSuccess(data: HouseDatas) {
         houseAdapter.updateList(data.house_data)
     }
-
-    override fun onRetrieveBaseSuccess(message: String) {}
 }

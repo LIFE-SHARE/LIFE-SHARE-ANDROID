@@ -71,6 +71,4 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
 
         roomAdapter.updateList(data.room_data)
     }
-
-    override fun onRetrieveBaseSuccess(message: String) {}
 }

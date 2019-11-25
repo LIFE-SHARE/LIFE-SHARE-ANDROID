@@ -31,6 +31,4 @@ class ShowApplyViewModel(application: Application) : BaseViewModel<ApplyDatas>(a
     override fun onRetrieveDataSuccess(data: ApplyDatas) {
         applyAdapter.updateList(data.applyList)
     }
-
-    override fun onRetrieveBaseSuccess(message: String) {}
 }

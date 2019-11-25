@@ -116,8 +116,4 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     fun onClickAddHouseBtn() {
         addHouseEvent.call()
     }
-
-    override fun onRetrieveDataSuccess(data: Any) {}
-
-    override fun onRetrieveBaseSuccess(message: String) {}
 }

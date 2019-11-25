@@ -53,10 +53,10 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     fun addPostHouse() {
         when {
             !setRequest() -> return
-            else -> addDisposable(
-                houseClient.addPostHouse(
-                    token, name.value!!, address.value!!, genderLimit.value!!, ageLimit.value!!,
-                    contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!), baseObserver)
+            else -> {
+                addDisposable(houseClient.addPostHouse(token, name.value!!, address.value!!, genderLimit.value!!,
+                    ageLimit.value!!, contractperiod.value!!, maxMember.value!!, information.value!!, image.value!!), baseObserver)
+            }
         }
     }
 

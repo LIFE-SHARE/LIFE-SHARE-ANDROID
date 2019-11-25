@@ -43,11 +43,19 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
             })
 
             goToCrop.observe(this@AddHouseActivity, Observer {
-                goToCropPage(viewModel.tempPictureUri.value, viewModel.pictureUri.value)
+                goToCropPage(viewModel.tempPictureUri.value!!, viewModel.pictureUri.value!!)
             })
 
             addHouseEvent.observe(this@AddHouseActivity, Observer {
-                addPostHouse()
+                when {
+                    isEmpty() -> {
+                        simpleToast("빈칸 없이 입력해주세요")
+                        return@Observer
+                    }
+                    else -> {
+                        addPostHouse()
+                    }
+                }
             })
         }
     }
@@ -63,5 +71,12 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
 
     override fun cropNextEvent() {
         Glide.with(this).load(viewModel.pictureUri.value).into(binding.houseImage)
+    }
+
+    private fun isEmpty(): Boolean {
+        return viewModel.request.name.isEmpty() || viewModel.request.address.isEmpty() ||
+                viewModel.request.genderLimit.isEmpty() || viewModel.request.ageLimit.toString().isEmpty() ||
+                viewModel.request.contractperiod.isEmpty() || viewModel.request.maxMember.toString().isEmpty() ||
+                viewModel.request.information.isEmpty() || viewModel.request.image.isEmpty()
     }
 }

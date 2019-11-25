@@ -85,7 +85,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     private fun setRequest(): Boolean {
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
-            image.value = MultipartBody.Part.createFormData("photo", imageFile.value!!.name, requestFile)
+            image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
             address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)

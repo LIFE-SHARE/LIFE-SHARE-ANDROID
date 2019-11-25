@@ -8,6 +8,5 @@ class AddHouseRequest(var name: String,
                       var maxMember: Int,
                       var information: String,
                       var image: String) {
-
     constructor() : this("", "", "", 0, "",0, "", "")
 }

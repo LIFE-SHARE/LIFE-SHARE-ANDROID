@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.base.activity
 
 import android.Manifest
+
 import android.annotation.SuppressLint
 
 import android.app.Activity
@@ -11,6 +12,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 
 import android.net.Uri
+
 import android.os.AsyncTask
 
 import android.provider.MediaStore
@@ -23,7 +25,9 @@ import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
+
 import java.io.IOException
+
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL

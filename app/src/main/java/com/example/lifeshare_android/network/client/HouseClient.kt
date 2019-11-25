@@ -29,7 +29,7 @@ class HouseClient : BaseClient<HouseApi>() {
                      contractperiod: RequestBody,
                      information: RequestBody,
                      image: MultipartBody.Part): Single<Any> {
-        return api.postHouse(token, maxMember, name, address, genderLimit, ageLimit, contractperiod, information, image).map(getResponseMessageFunction())
+        return api.addPostHouse(token, maxMember, name, address, genderLimit, ageLimit, contractperiod, information, image).map(getResponseMessageFunction())
     }
 
     override fun type(): Class<HouseApi> {

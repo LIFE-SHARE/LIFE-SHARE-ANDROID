@@ -21,7 +21,7 @@ interface HouseApi {
 
     @Multipart
     @POST("/house")
-    fun postHouse(@Header("x-access-token") token: String,
+    fun addPostHouse(@Header("x-access-token") token: String,
                   @retrofit2.http.Part("maxMember") maxMember: RequestBody,
                   @retrofit2.http.Part("name") name: RequestBody,
                   @retrofit2.http.Part("address") address: RequestBody,

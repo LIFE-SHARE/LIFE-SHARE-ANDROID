@@ -17,8 +17,6 @@ import android.os.AsyncTask
 
 import android.provider.MediaStore
 
-import android.widget.Toast
-
 import androidx.databinding.ViewDataBinding
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel

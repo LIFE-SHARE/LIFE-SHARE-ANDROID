@@ -43,14 +43,14 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
     private val imageFile = MutableLiveData<File>()
     private val image = MutableLiveData<MultipartBody.Part>()
     val houseId = MutableLiveData<RequestBody>()
-    private val peopelCnt = MutableLiveData<RequestBody>()
+    private val peopleCnt = MutableLiveData<RequestBody>()
     private val money = MutableLiveData<RequestBody>()
 
     fun addPostRoom() {
         when {
             !setRequest() -> return
             else -> {
-                addDisposable(houseClient.addPostRoom(token, houseId.value!!, peopelCnt.value!!, money.value!!, image.value!!), baseObserver)
+                addDisposable(houseClient.addPostRoom(token, houseId.value!!, peopleCnt.value!!, money.value!!, image.value!!), baseObserver)
             }
         }
     }
@@ -83,7 +83,7 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
             houseId.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.houseId.toString())
-            peopelCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt.toString())
+            peopleCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt.toString())
             money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money)
         }
         catch (e: NullPointerException) {

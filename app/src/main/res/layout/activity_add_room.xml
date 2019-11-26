@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lifeshare_android.viewmodel.AddRoomViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,24 +40,27 @@
         android:id="@+id/input_img"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:adjustViewBounds="true"
         android:fontFamily="@font/nanum_squareeb"
         android:gravity="center"
         android:text="사진등록"
         android:textColor="@color/black"
         android:textSize="8pt"
+        android:onClick="@{() -> viewModel.onClickInputImageBtn()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/action_bar_layout" />
 
     <ImageView
-        android:id="@+id/house_image"
+        android:id="@+id/room_image"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/none_image"
+        mutableImageUri="@{viewModel.pictureUri}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_img"
+        tools:src="@drawable/none_image"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -59,19 +68,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/nanum_squareb"
         android:text="수용인원"
         android:textColor="@color/black"
         android:textSize="11pt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/house_image" />
+        app:layout_constraintTop_toBottomOf="@+id/room_image" />
 
     <TextView
         android:id="@+id/place_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/nanum_squareb"
         android:text="보증금/월세"
         android:textColor="@color/black"
@@ -80,39 +89,67 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:ignore="HardcodedText" />
 
-    <EditText
-        android:id="@+id/member_count_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_room_max_member"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginStart="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="ex) 3명"
+        android:layout_marginEnd="12dp"
+        android:hint="ex) 10명"
+        app:boxBackgroundColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14"
+        tools:ignore="HardcodedText">
 
-    <EditText
-        android:id="@+id/money_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/room_max_member_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
+            android:inputType="date"
+            android:text="@{viewModel.request.peopleCnt}"
+            android:privateImeOptions="nm" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_room_money"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginStart="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="ex) 500/30"
+        android:layout_marginEnd="12dp"
+        android:hint="ex) 300/15"
+        app:boxBackgroundColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/place_title"
-        app:layout_constraintStart_toEndOf="@+id/place_title"
-        app:layout_constraintTop_toTopOf="@+id/place_title" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/place_title"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/room_money_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
+            android:inputType="date"
+            android:text="@{viewModel.request.money}"
+            android:privateImeOptions="nm" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/addRoomBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
         android:gravity="center"
         android:text="추가하기"
         android:textSize="9pt"
         android:textColor="@color/black"
         android:fontFamily="@font/nanum_squareeb"
+        android:onClick="@{() -> viewModel.onClickAddRoomBtn()}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

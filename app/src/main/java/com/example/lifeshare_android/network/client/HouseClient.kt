@@ -32,6 +32,14 @@ class HouseClient : BaseClient<HouseApi>() {
         return api.addPostHouse(token, maxMember, name, address, genderLimit, ageLimit, contractperiod, information, image).map(getResponseMessageFunction())
     }
 
+    fun addPostRoom(token: String,
+                    houseId: RequestBody,
+                    peopleCnt: RequestBody,
+                    money: RequestBody,
+                    image: MultipartBody.Part): Single<Any> {
+        return api.addPostRoom(token, houseId, peopleCnt, money, image).map(getResponseMessageFunction())
+    }
+
     override fun type(): Class<HouseApi> {
         return HouseApi::class.java
     }

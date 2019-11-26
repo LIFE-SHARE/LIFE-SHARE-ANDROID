@@ -14,8 +14,8 @@ import com.example.lifeshare_android.viewmodel.SplashViewModel
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
-    private val hold = AnimationUtils.loadAnimation(this, R.anim.splash_hold)!!
-    private val scale = AnimationUtils.loadAnimation(this, R.anim.splash_scale)!!
+    private val hold = AnimationUtils.loadAnimation(applicationContext, R.anim.splash_hold)!!
+    private val scale = AnimationUtils.loadAnimation(applicationContext, R.anim.splash_scale)!!
 
     override fun getLayoutId(): Int {
         return R.layout.activity_splash

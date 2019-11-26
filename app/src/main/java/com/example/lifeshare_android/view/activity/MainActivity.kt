@@ -1,12 +1,8 @@
 package com.example.lifeshare_android.view.activity
 
-import android.app.AlertDialog
-
 import android.content.Intent
 
 import android.os.Bundle
-
-import android.widget.Toast
 
 import androidx.lifecycle.Observer
 

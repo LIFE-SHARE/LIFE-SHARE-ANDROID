@@ -47,15 +47,15 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
             })
 
             addHouseEvent.observe(this@AddHouseActivity, Observer {
-                when {
-                    isEmpty() -> {
-                        simpleToast("빈칸 없이 입력해주세요")
-                        return@Observer
-                    }
-                    else -> {
+//                when {
+//                    isEmpty() -> {
+//                        simpleToast("빈칸 없이 입력해주세요")
+//                        return@Observer
+//                    }
+//                    else -> {
                         addPostHouse()
-                    }
-                }
+//                    }
+//                }
             })
         }
     }

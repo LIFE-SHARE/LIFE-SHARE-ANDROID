@@ -178,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.name}"
                     android:privateImeOptions="nm" />
 
@@ -203,7 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.address}"
                     android:privateImeOptions="nm" />
 
@@ -228,7 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.genderLimit}"
                     android:privateImeOptions="nm" />
 
@@ -253,7 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.ageLimit}"
                     android:privateImeOptions="nm" />
 
@@ -278,7 +278,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.contractperiod}"
                     android:privateImeOptions="nm" />
 
@@ -303,7 +303,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.maxMember}"
                     android:privateImeOptions="nm" />
 
@@ -329,7 +329,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:text="@{viewModel.request.information}"
                     android:privateImeOptions="nm" />
 

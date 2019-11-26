@@ -28,10 +28,8 @@
         <activity android:name=".view.activity.AddRoomActivity" />
         <activity android:name=".view.activity.ShowHouseActivity" />
         <activity android:name=".view.activity.AddHouseActivity" />
-        <activity android:name=".view.activity.LoginActivity">
-
-        </activity>
-        <activity android:name=".view.activity.MainActivity"></activity>
+        <activity android:name=".view.activity.LoginActivity"/>
+        <activity android:name=".view.activity.MainActivity"/>
     </application>
 
 </manifest>

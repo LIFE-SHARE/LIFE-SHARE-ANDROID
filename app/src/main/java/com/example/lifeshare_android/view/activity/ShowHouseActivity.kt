@@ -38,7 +38,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
                     .putExtra("houseId", it!!.toString()))
             })
 
-            applyEvent.observe(this@ShowHouseActivity, Observer {
+            applyCheckEvent.observe(this@ShowHouseActivity, Observer {
                 startActivity(Intent(this@ShowHouseActivity, ShowApplyActivity::class.java)
                     .putExtra("houseId", it!!.toString()))
             })
@@ -46,7 +46,8 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
             with(roomAdapter) {
 
                 openRoom.observe(this@ShowHouseActivity, Observer {
-                    // TODO : onClickRoomItem
+                    simpleToast(it!!)
+                    // TODO : onClickRoomItem <추후 업데이트 할 내용> : ?방 정보 확인하기?
                 })
             }
         }

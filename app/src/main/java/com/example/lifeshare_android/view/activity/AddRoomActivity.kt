@@ -51,7 +51,15 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
             })
 
             addRoomEvent.observe(this@AddRoomActivity, Observer {
-                addPostRoom()
+                when {
+                    isEmpty() -> {
+                        simpleToast("빈칸 없이 입력해주세요")
+                        return@Observer
+                    }
+                    else -> {
+                        addPostRoom()
+                    }
+                }
             })
         }
     }
@@ -82,5 +90,10 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
 
     override fun cropNextEvent() {
         Glide.with(this).load(viewModel.pictureUri.value).into(binding.roomImage)
+    }
+
+    private fun isEmpty(): Boolean {
+        return viewModel.request.houseId.toString().isEmpty() || viewModel.request.peopleCnt.toString().isEmpty() ||
+                viewModel.request.money.isEmpty() || viewModel.request.image.isEmpty()
     }
 }

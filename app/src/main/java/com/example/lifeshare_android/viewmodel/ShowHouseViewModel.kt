@@ -19,7 +19,7 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
 
     val backEvent = SingleLiveEvent<Unit>()
     val addRoomEvent = SingleLiveEvent<Int>()
-    val applyEvent = SingleLiveEvent<Int>()
+    val applyCheckEvent = SingleLiveEvent<Int>()
 
     val houseId = SingleLiveEvent<Int>()
 
@@ -41,7 +41,7 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     }
 
     fun onClickApplyBtn() {
-        applyEvent.value = houseId.value!!
+        applyCheckEvent.value = houseId.value!!
     }
 
     fun setUp() {

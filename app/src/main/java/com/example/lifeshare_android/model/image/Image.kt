@@ -1,3 +1,3 @@
 package com.example.lifeshare_android.model.image
 
-class Image(var images: String)
+data class Image(var images: String)

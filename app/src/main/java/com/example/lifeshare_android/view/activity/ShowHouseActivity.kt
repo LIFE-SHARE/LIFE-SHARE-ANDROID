@@ -47,7 +47,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
 
                 openRoom.observe(this@ShowHouseActivity, Observer {
                     simpleToast(it!!)
-                    // TODO : onClickRoomItem <추후 업데이트 할 내용> : ?방 정보 확인하기?
+                    // TODO : onClickRoomItem <추후 업데이트 할 내용> : ? 방 정보 확인하기 ?
                 })
             }
         }

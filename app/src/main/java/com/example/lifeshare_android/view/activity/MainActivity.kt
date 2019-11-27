@@ -47,7 +47,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.onCreate(savedInstanceState)
 
         setUp()
-        viewModel.getAllHouse()
     }
 
     private fun setUp() {

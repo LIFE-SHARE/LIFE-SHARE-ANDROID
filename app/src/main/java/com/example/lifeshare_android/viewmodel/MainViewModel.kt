@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : BaseViewModel<HouseDatas>(applic
         addHouseEvent.call()
     }
 
-    fun getAllHouse() {
+    override fun onCreate() {
         addDisposable(houseClient.getAllHouse(token), dataObserver)
     }
 

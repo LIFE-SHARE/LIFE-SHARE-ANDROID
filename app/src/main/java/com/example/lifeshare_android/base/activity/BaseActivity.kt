@@ -39,6 +39,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCo
         super.onCreate(savedInstanceState)
 
         performDataBinding()
+        viewModel.onCreate()
         initObserver()
     }
 

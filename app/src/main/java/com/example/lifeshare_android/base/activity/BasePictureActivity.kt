@@ -76,19 +76,17 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode != Activity.RESULT_OK) {
-            requestNotOkEvent()
+        when {
+            resultCode != Activity.RESULT_OK -> requestNotOkEvent()
         }
         when (requestCode) {
             PICK_FROM_ALBUM -> {
-                if (data == null) {
-                    return
+                when (data) {
+                    null -> return
+                    else -> pickNextEvent(data)
                 }
-                pickNextEvent(data)
             }
-            REQUEST_IMAGE_CROP -> {
-                cropNextEvent()
-            }
+            REQUEST_IMAGE_CROP -> cropNextEvent()
         }
     }
 

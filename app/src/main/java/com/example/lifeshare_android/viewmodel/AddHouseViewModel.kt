@@ -13,7 +13,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 import com.example.lifeshare_android.network.client.HouseClient
 import com.example.lifeshare_android.network.request.AddHouseRequest
-import com.example.lifeshare_android.network.request.set.SetAddHouseRequest
 import com.example.lifeshare_android.widget.SingleLiveEvent
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -32,17 +31,6 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     private val houseClient = HouseClient()
 
     val request = AddHouseRequest()
-    private val setRequest =
-        SetAddHouseRequest(
-            request.name,
-            request.address,
-            request.genderLimit,
-            request.ageLimit.toInt(),
-            request.contractperiod,
-            request.maxMember.toInt(),
-            request.information,
-            request.image
-        )
 
     val addHouseEvent = SingleLiveEvent<Unit>()
     val goToAlbum = SingleLiveEvent<Unit>()
@@ -98,13 +86,13 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
-            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.name)
-            address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.address)
-            genderLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.genderLimit)
-            ageLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.ageLimit.toString())
-            contractperiod.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.contractperiod)
-            maxMember.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.maxMember.toString())
-            information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), setRequest.information)
+            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
+            address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)
+            genderLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.genderLimit)
+            ageLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.ageLimit.toString())
+            contractperiod.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.contractperiod)
+            maxMember.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.maxMember.toString())
+            information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.information)
         }
         catch (e: NullPointerException) {
             nullPointEvent.call()

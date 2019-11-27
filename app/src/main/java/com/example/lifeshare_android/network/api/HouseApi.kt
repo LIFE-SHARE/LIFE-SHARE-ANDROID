@@ -22,11 +22,11 @@ interface HouseApi {
     @Multipart
     @POST("/house")
     fun addPostHouse(@Header("x-access-token") token: String,
-                     @Part("maxMember") maxMember: RequestBody,
                      @Part("name") name: RequestBody,
                      @Part("address") address: RequestBody,
                      @Part("genderLimit") genderLimit: RequestBody,
                      @Part("ageLimit") ageLimit: RequestBody,
+                     @Part("maxMember") maxMember: RequestBody,
                      @Part("contractperiod") contractperiod: RequestBody,
                      @Part("information") information: RequestBody,
                      @Part image: MultipartBody.Part): Single<retrofit2.Response<Response<Any>>>

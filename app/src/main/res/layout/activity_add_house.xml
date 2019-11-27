@@ -185,7 +185,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_layout_house_place"
+                android:id="@+id/input_layout_house_address"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -199,7 +199,7 @@
                 tools:ignore="HardcodedText">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/house_place_text"
+                    android:id="@+id/house_address_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"

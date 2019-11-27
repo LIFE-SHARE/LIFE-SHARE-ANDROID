@@ -36,7 +36,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     val goToAlbum = SingleLiveEvent<Unit>()
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
-    val nullPointEvent = SingleLiveEvent<Unit>()
+    val nullPointImageEvent = SingleLiveEvent<String>()
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
@@ -70,9 +70,9 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     }
 
     private fun createFile() {
-        val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House")
+        val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShareHouse")
         if (!file.exists()) file.mkdirs()
-        imageFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/House"
+        imageFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShareHouse/"
                 + Random().nextInt(999999999).toString() + ".jpg")
         try {
             imageFile.value!!.createNewFile()
@@ -95,7 +95,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
             information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.information!!)
         }
         catch (e: NullPointerException) {
-            nullPointEvent.call()
+            nullPointImageEvent.value = "사진을 설정해주세요"
             return false
         }
         return true

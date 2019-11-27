@@ -33,8 +33,8 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
                 simpleToast("취소 되었습니다")
             })
 
-            nullPointEvent.observe(this@AddHouseActivity, Observer {
-                simpleToast("사진을 설정해주세요")
+            nullPointImageEvent.observe(this@AddHouseActivity, Observer {
+                simpleToast(it!!)
             })
 
             goToAlbum.observe(this@AddHouseActivity, Observer {
@@ -47,16 +47,14 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
             })
 
             addHouseEvent.observe(this@AddHouseActivity, Observer {
+                request.name = binding.houseNameText.text.toString()
+                request.address = binding.houseAddressText.text.toString()
+                request.genderLimit = binding.houseGenderLimitText.text.toString()
                 request.ageLimit = binding.houseAgeLimitText.text.toString().toInt()
                 request.maxMember = binding.houseMaxMemberText.text.toString().toInt()
-//                when {
-//                    isEmpty() -> {
-//                        simpleToast(R.string.empty_message)
-//                        return@Observer
-//                    }
-//                    else ->
-                        addPostHouse()
-//                }
+                request.contractperiod = binding.houseContractperiodText.text.toString()
+                request.information = binding.houseInformationText.text.toString()
+                addPostHouse()
             })
         }
     }
@@ -72,12 +70,5 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
 
     override fun cropNextEvent() {
         Glide.with(this).load(viewModel.pictureUri.value).into(binding.houseImage)
-    }
-
-    private fun isEmpty(): Boolean {
-        return viewModel.request.name!!.isEmpty() || viewModel.request.address!!.isEmpty() ||
-                viewModel.request.genderLimit!!.isEmpty() || viewModel.request.ageLimit!!.toString().isEmpty() ||
-                viewModel.request.contractperiod!!.isEmpty() || viewModel.request.maxMember!!.toString().isEmpty() ||
-                viewModel.request.information!!.isEmpty() || viewModel.request.image!!.isEmpty()
     }
 }

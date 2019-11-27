@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
+import android.os.Bundle
 
 import androidx.lifecycle.Observer
 
@@ -47,15 +48,17 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
             })
 
             addHouseEvent.observe(this@AddHouseActivity, Observer {
-//                when {
-//                    isEmpty() -> {
-//                        simpleToast("빈칸 없이 입력해주세요")
-//                        return@Observer
-//                    }
-//                    else -> {
+                viewModel.request.ageLimit = binding.houseAgeLimitText.text.toString().toInt()
+                viewModel.request.maxMember = binding.houseMaxMemberText.text.toString().toInt()
+                when {
+                    isEmpty() -> {
+                        simpleToast("빈칸 없이 입력해주세요")
+                        return@Observer
+                    }
+                    else -> {
                         addPostHouse()
-//                    }
-//                }
+                    }
+                }
             })
         }
     }

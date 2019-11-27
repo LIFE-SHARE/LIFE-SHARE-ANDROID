@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 
 import com.example.lifeshare_android.base.viewmodel.BaseItemViewModel
 import com.example.lifeshare_android.model.room.Room
-import com.example.lifeshare_android.util.Strings
+import com.example.lifeshare_android.util.HostStrings
 import com.example.lifeshare_android.widget.recyclerview.navigator.room.RoomItemNavigator
 
 class RoomItemViewModel : BaseItemViewModel<Room, RoomItemNavigator>() {
@@ -18,7 +18,7 @@ class RoomItemViewModel : BaseItemViewModel<Room, RoomItemNavigator>() {
     }
 
     override fun bind(data: Room) {
-        image.value = Strings.MAIN_HOST + "/" + data.imageData
+        image.value = HostStrings.MAIN_HOST + "/" + data.imageData
         peopleCount.value = String.format("" + data.peopleCnt + "인실")
         depositAndMonthly.value = data.money
     }

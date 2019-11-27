@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 object Utils {
     var RETROFIT: Retrofit = Builder()
             .client(client)
-            .baseUrl(Strings.MAIN_HOST)
+            .baseUrl(HostStrings.MAIN_HOST)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .callbackExecutor(Executors.newSingleThreadExecutor())

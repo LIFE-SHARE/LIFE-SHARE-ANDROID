@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 import com.example.lifeshare_android.network.client.HouseClient
 import com.example.lifeshare_android.network.response.data.HouseData
-import com.example.lifeshare_android.util.Strings
+import com.example.lifeshare_android.util.HostStrings
 import com.example.lifeshare_android.widget.SingleLiveEvent
 import com.example.lifeshare_android.widget.recyclerview.adapter.RoomAdapter
 
@@ -67,7 +67,7 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
         contractperiod.value = data.house_data.contractperiod
         information.value = data.house_data.information
         maxMember.value = String.format("" + data.house_data.maxMember + "명")
-        image.value = Strings.MAIN_HOST + "/" + data.house_data.imageData
+        image.value = HostStrings.MAIN_HOST + "/" + data.house_data.imageData
 
         roomAdapter.updateList(data.room_data)
     }

@@ -6,9 +6,6 @@ import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
 
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-
 import android.widget.Toast
 
 import androidx.annotation.LayoutRes
@@ -25,8 +22,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCompatActivity() {
-
-    protected val anim: Animation = AlphaAnimation(0.0f, 1.0f)
 
     protected lateinit var binding: VB
     protected lateinit var viewModel: VM
@@ -93,12 +88,5 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCo
             fragment!!.arguments = args
             return fragment
         }
-    }
-
-    protected fun initSetBlinkAnimation() {
-        anim.duration = 50 // You can manage the time of the blink with this parameter
-        anim.startOffset = 20
-        anim.repeatMode = Animation.REVERSE
-        anim.repeatCount = 5 // blink time
     }
 }

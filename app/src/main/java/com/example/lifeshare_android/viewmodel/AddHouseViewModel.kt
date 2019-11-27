@@ -71,7 +71,9 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     private fun createFile() {
         val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShareHouse")
-        if (!file.exists()) file.mkdirs()
+        when {
+            !file.exists() -> file.mkdirs()
+        }
         imageFile.value = File(Environment.getExternalStorageDirectory().toString() + "/LifeShareHouse/"
                 + Random().nextInt(999999999).toString() + ".jpg")
         try {

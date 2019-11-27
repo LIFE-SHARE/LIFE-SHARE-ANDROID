@@ -86,13 +86,13 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
-            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name)
-            address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address)
-            genderLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.genderLimit)
-            ageLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.ageLimit.toString())
-            contractperiod.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.contractperiod)
-            maxMember.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.maxMember.toString())
-            information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.information)
+            name.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.name!!)
+            address.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.address!!)
+            genderLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.genderLimit!!)
+            ageLimit.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.ageLimit!!.toString())
+            maxMember.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.maxMember!!.toString())
+            contractperiod.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.contractperiod!!)
+            information.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.information!!)
         }
         catch (e: NullPointerException) {
             nullPointEvent.call()

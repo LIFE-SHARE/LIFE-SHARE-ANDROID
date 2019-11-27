@@ -75,9 +75,9 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
     }
 
     private fun isEmpty(): Boolean {
-        return viewModel.request.name.isEmpty() || viewModel.request.address.isEmpty() ||
-                viewModel.request.genderLimit.isEmpty() || viewModel.request.ageLimit.toString().isEmpty() ||
-                viewModel.request.contractperiod.isEmpty() || viewModel.request.maxMember.toString().isEmpty() ||
-                viewModel.request.information.isEmpty() || viewModel.request.image.isEmpty()
+        return viewModel.request.name!!.isEmpty() || viewModel.request.address!!.isEmpty() ||
+                viewModel.request.genderLimit!!.isEmpty() || viewModel.request.ageLimit!!.toString().isEmpty() ||
+                viewModel.request.contractperiod!!.isEmpty() || viewModel.request.maxMember!!.toString().isEmpty() ||
+                viewModel.request.information!!.isEmpty() || viewModel.request.image!!.isEmpty()
     }
 }

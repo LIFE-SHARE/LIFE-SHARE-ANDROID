@@ -21,15 +21,15 @@ class HouseClient : BaseClient<HouseApi>() {
     }
 
     fun addPostHouse(token: String,
-                     maxMember: RequestBody,
                      name: RequestBody,
                      address: RequestBody,
                      genderLimit: RequestBody,
                      ageLimit: RequestBody,
+                     maxMember: RequestBody,
                      contractperiod: RequestBody,
                      information: RequestBody,
                      image: MultipartBody.Part): Single<Any> {
-        return api.addPostHouse(token, maxMember, name, address, genderLimit, ageLimit, contractperiod, information, image).map(getResponseMessageFunction())
+        return api.addPostHouse(token, name, address, genderLimit, ageLimit, maxMember, contractperiod, information, image).map(getResponseMessageFunction())
     }
 
     fun addPostRoom(token: String,

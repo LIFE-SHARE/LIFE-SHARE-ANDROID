@@ -4,9 +4,9 @@ class AddHouseRequest(var name: String,
                       var address: String,
                       var genderLimit: String,
                       var ageLimit: Int,
-                      var contractperiod: String,
                       var maxMember: Int,
+                      var contractperiod: String,
                       var information: String,
                       var image: String) {
-    constructor() : this("", "", "", 0, "",0, "", "")
+    constructor() : this("", "", "", 0, 0,"", "", "")
 }

@@ -28,11 +28,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         with(viewModel) {
 
             loginEvent.observe(this@LoginActivity, Observer {
-                if(isEmpty()) {
-                    simpleToast(R.string.empty_message)
-                    return@Observer
+                when {
+                    isEmpty() -> {
+                        simpleToast(R.string.empty_message)
+                        return@Observer
+                    }
+                    else -> viewModel.login()
                 }
-                viewModel.login()
             })
 
             onSuccessEvent.observe(this@LoginActivity, Observer {

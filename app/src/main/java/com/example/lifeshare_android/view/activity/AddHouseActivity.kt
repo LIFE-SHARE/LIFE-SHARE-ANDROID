@@ -56,6 +56,11 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
                 request.information = binding.houseInformationText.text.toString()
                 addPostHouse()
             })
+
+            onSuccessEvent.observe(this@AddHouseActivity, Observer {
+                simpleToast(it!!)
+                startActivityWithFinish(MainActivity::class.java)
+            })
         }
     }
 

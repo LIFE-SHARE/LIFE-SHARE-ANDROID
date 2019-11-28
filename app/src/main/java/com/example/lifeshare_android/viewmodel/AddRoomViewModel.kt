@@ -37,6 +37,7 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
     val nullPointImageEvent = SingleLiveEvent<String>()
+    val onSuccessEvent = SingleLiveEvent<String>()
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
@@ -106,5 +107,11 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
 
     fun onClickAddRoomBtn() {
         addRoomEvent.call()
+    }
+
+    override fun onRetrieveBaseSuccess(message: String) {
+        super.onRetrieveBaseSuccess(message)
+
+        onSuccessEvent.value = message
     }
 }

@@ -37,6 +37,7 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
     val nullPointImageEvent = SingleLiveEvent<String>()
+    val onSuccessEvent = SingleLiveEvent<String>()
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
@@ -116,5 +117,11 @@ class AddHouseViewModel(application: Application) : BaseViewModel<Any>(applicati
 
     fun onClickAddHouseBtn() {
         addHouseEvent.call()
+    }
+
+    override fun onRetrieveBaseSuccess(message: String) {
+        super.onRetrieveBaseSuccess(message)
+
+        onSuccessEvent.value = message
     }
 }

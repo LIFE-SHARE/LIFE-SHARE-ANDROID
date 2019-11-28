@@ -55,6 +55,11 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
                 request.money = binding.roomMoneyText.text.toString()
                 addPostRoom()
             })
+
+            onSuccessEvent.observe(this@AddRoomActivity, Observer {
+                simpleToast(it!!)
+                startActivityWithFinish(ShowHouseActivity::class.java)
+            })
         }
     }
 

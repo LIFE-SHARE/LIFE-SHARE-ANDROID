@@ -51,7 +51,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     private fun setUp() {
         when {
-            intent!!.hasExtra("userName") -> viewModel.userName.value = intent!!.getStringExtra("userName")
+            intent!!.hasExtra("userName") -> viewModel.userName.value = "이유승"
+//                intent!!.getStringExtra("userName")
             else -> {
                 viewModel.userName.value = "사용자"
             }

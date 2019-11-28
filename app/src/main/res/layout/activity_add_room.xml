@@ -95,7 +95,6 @@
             android:layout_height="wrap_content"
             android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
             android:inputType="number"
-            android:text="@{viewModel.request.peopleCnt}"
             android:privateImeOptions="nm" />
 
     </com.google.android.material.textfield.TextInputLayout>

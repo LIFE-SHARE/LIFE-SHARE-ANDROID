@@ -33,7 +33,7 @@ class HouseClient : BaseClient<HouseApi>() {
     }
 
     fun addPostRoom(token: String,
-                    houseId: RequestBody,
+                    houseId: Int,
                     peopleCnt: RequestBody,
                     money: RequestBody,
                     image: MultipartBody.Part): Single<Any> {

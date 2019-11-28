@@ -58,7 +58,8 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
 
             onSuccessEvent.observe(this@AddRoomActivity, Observer {
                 simpleToast(it!!)
-                startActivityWithFinish(ShowHouseActivity::class.java)
+                startActivity(Intent(this@AddRoomActivity, ShowHouseActivity::class.java)
+                    .putExtra("houseId", houseId.value!!))
             })
         }
     }
@@ -71,7 +72,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
 
     private fun setUp() {
         when {
-            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getSerializableExtra("houseId")!! as RequestBody
+            intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId")!!.toInt()
             else -> {
                 simpleToast("houseId : NullPointException")
             }

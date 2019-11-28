@@ -34,7 +34,7 @@ interface HouseApi {
     @Multipart
     @POST("/house/room")
     fun addPostRoom(@Header("x-access-token") token: String,
-                    @Part("houseId") houseId: RequestBody,
+                    @Part("houseId") houseId: Int,
                     @Part("people_count") peopleCnt: RequestBody,
                     @Part("money") money: RequestBody,
                     @Part image: MultipartBody.Part): Single<retrofit2.Response<Response<Any>>>

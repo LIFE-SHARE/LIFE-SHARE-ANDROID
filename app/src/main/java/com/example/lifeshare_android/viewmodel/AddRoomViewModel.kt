@@ -43,7 +43,7 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
     val pictureUri = MutableLiveData<Uri>()
     private val imageFile = MutableLiveData<File>()
     private val image = MutableLiveData<MultipartBody.Part>()
-    val houseId = MutableLiveData<RequestBody>()
+    val houseId = MutableLiveData<Int>()
     private val peopleCnt = MutableLiveData<RequestBody>()
     private val money = MutableLiveData<RequestBody>()
 
@@ -83,7 +83,6 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
-            houseId.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.houseId!!.toString())
             peopleCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt!!.toString())
             money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money!!.toString())
         }

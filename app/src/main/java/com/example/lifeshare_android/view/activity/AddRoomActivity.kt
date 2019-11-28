@@ -37,8 +37,8 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
                 simpleToast("취소 되었습니다")
             })
 
-            nullPointEvent.observe(this@AddRoomActivity, Observer {
-                simpleToast("사진을 설정해주세요")
+            nullPointImageEvent.observe(this@AddRoomActivity, Observer {
+                simpleToast(it!!)
             })
 
             goToAlbum.observe(this@AddRoomActivity, Observer {

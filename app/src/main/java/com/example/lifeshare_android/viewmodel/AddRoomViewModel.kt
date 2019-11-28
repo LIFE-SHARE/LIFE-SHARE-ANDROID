@@ -36,7 +36,7 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
     val goToAlbum = SingleLiveEvent<Unit>()
     val goToCrop = SingleLiveEvent<Unit>()
     val backMessageToast = SingleLiveEvent<Unit>()
-    val nullPointEvent = SingleLiveEvent<Unit>()
+    val nullPointImageEvent = SingleLiveEvent<String>()
 
     val tempPictureUri = MutableLiveData<Uri>()
     val pictureUri = MutableLiveData<Uri>()
@@ -84,10 +84,10 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
             houseId.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.houseId!!.toString())
             peopleCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt!!.toString())
-            money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money!!)
+            money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money!!.toString())
         }
         catch (e: NullPointerException) {
-            nullPointEvent.call()
+            nullPointImageEvent.value = "사진을 설정해주세요"
             return false
         }
         return true

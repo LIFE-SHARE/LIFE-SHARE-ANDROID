@@ -51,15 +51,9 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
             })
 
             addRoomEvent.observe(this@AddRoomActivity, Observer {
-                when {
-                    isEmpty() -> {
-                        simpleToast("빈칸 없이 입력해주세요")
-                        return@Observer
-                    }
-                    else -> {
-                        addPostRoom()
-                    }
-                }
+                request.peopleCnt = binding.roomMaxMemberText.text.toString().toInt()
+                request.money = binding.roomMoneyText.text.toString()
+                addPostRoom()
             })
         }
     }

@@ -60,6 +60,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
                 simpleToast(it!!)
                 startActivity(Intent(this@AddRoomActivity, ShowHouseActivity::class.java)
                     .putExtra("houseId", houseId.value!!))
+                finish()
             })
         }
     }

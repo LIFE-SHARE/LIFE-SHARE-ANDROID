@@ -1,8 +1,8 @@
 package com.example.lifeshare_android.network.request
 
-class AddRoomRequest(var houseId: Int,
-                     var peopleCnt: Int,
-                     var money: String,
-                     var image: String) {
-    constructor() : this(0, 0, "", "")
+class AddRoomRequest {
+    var houseId: Int? = null
+    var peopleCnt: Int? = null
+    var money: String? = null
+    var image: String? = null
 }

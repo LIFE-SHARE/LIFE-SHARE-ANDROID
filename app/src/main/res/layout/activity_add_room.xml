@@ -42,7 +42,7 @@
         android:id="@+id/room_image"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        mutableImageUri="@{viewModel.pictureUri}"
+        app:mutableImageUri="@{viewModel.pictureUri}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_img"

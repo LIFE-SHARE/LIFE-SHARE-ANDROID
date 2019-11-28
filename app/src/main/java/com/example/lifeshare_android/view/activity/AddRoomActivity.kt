@@ -93,7 +93,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
     }
 
     private fun isEmpty(): Boolean {
-        return viewModel.request.houseId.toString().isEmpty() || viewModel.request.peopleCnt.toString().isEmpty() ||
-                viewModel.request.money.isEmpty() || viewModel.request.image.isEmpty()
+        return viewModel.request.houseId!!.toString().isEmpty() || viewModel.request.peopleCnt!!.toString().isEmpty() ||
+                viewModel.request.money!!.isEmpty() || viewModel.request.image!!.isEmpty()
     }
 }

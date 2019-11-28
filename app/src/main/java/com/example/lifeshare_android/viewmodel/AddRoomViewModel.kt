@@ -65,10 +65,10 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
     }
 
     private fun createFile() {
-        val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShare/Room")
+        val file = File(Environment.getExternalStorageDirectory().toString() + "/LifeShareRoom")
         if (!file.exists()) file.mkdirs()
         imageFile.value = File(
-            Environment.getExternalStorageDirectory().toString() + "/LifeShare/Room"
+            Environment.getExternalStorageDirectory().toString() + "/LifeShareRoom/"
                     + Random().nextInt(999999999).toString() + ".jpg")
         try {
             imageFile.value!!.createNewFile()
@@ -82,9 +82,9 @@ class AddRoomViewModel(application: Application) : BaseViewModel<Any>(applicatio
         try {
             val requestFile: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), imageFile.value!!)
             image.value = MultipartBody.Part.createFormData("image", imageFile.value!!.name, requestFile)
-            houseId.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.houseId.toString())
-            peopleCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt.toString())
-            money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money)
+            houseId.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.houseId!!.toString())
+            peopleCnt.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.peopleCnt!!.toString())
+            money.value = RequestBody.create("text/plain".toMediaTypeOrNull(), request.money!!)
         }
         catch (e: NullPointerException) {
             nullPointEvent.call()

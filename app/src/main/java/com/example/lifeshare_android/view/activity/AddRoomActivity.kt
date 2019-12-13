@@ -14,8 +14,6 @@ import com.example.lifeshare_android.base.activity.BasePictureActivity
 import com.example.lifeshare_android.databinding.ActivityAddRoomBinding
 import com.example.lifeshare_android.viewmodel.AddRoomViewModel
 
-import okhttp3.RequestBody
-
 class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewModel>() {
 
     override fun getLayoutId(): Int {

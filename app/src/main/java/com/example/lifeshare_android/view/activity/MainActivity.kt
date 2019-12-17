@@ -10,6 +10,7 @@ import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivityMainBinding
+import com.example.lifeshare_android.view.dialog.LogoutDialog
 import com.example.lifeshare_android.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -56,5 +57,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 viewModel.userName.value = "사용자"
             }
         }
+    }
+
+    override fun onBackPressed() {
+        newInstance(LogoutDialog()).show(supportFragmentManager)
     }
 }

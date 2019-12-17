@@ -38,4 +38,8 @@
         <item>"여성전용"</item>
     </string-array>
 
+    <string name="logout_text">로그아웃 하시겠습니까?</string>
+    <string name="yes_text">네</string>
+    <string name="no_text">아니요</string>
+
 </resources>

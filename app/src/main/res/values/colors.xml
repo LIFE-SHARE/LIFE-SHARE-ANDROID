@@ -21,4 +21,5 @@
     <color name="dutch_button_on">#e1e9f2</color>
     <color name="dutch_button_off">#e9eff7</color>
     <color name="colorLine">#A5A5A5</color>
+    <color name="colorMainDark">#424242</color>
 </resources>

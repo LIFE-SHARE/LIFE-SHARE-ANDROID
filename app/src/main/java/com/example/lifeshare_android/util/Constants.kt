@@ -1,6 +1,6 @@
 package com.example.lifeshare_android.util
 
-object HostStrings {
+object Constants {
 
     const val MAIN_HOST = "http://10.80.162.116:8000"
 

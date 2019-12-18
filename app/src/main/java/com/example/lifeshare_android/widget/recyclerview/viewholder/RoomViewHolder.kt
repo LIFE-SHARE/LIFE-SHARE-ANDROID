@@ -7,8 +7,7 @@ import com.example.lifeshare_android.widget.recyclerview.navigator.room.RoomAdap
 import com.example.lifeshare_android.widget.recyclerview.navigator.room.RoomItemNavigator
 import com.example.lifeshare_android.widget.recyclerview.viewmodel.RoomItemViewModel
 
-class RoomViewHolder(val binding: ItemRoomBinding) : BaseViewHolder<RoomAdapterNavigator>(binding.root),
-    RoomItemNavigator {
+class RoomViewHolder(val binding: ItemRoomBinding) : BaseViewHolder<RoomAdapterNavigator>(binding.root), RoomItemNavigator {
 
     private val viewModel = RoomItemViewModel()
 

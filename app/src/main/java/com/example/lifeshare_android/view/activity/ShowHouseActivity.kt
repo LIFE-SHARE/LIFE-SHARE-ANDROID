@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 
 import androidx.lifecycle.Observer
+
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.lifeshare_android.BR

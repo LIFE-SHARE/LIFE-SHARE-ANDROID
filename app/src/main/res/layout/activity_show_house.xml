@@ -67,7 +67,7 @@
                 android:fontFamily="@font/nanum_squareb"
                 android:text="하우스 이름"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/house_img" />
 
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/nanum_squareb"
                 android:text="위치"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 app:layout_constraintStart_toStartOf="@+id/textView14"
                 app:layout_constraintTop_toBottomOf="@+id/textView14"
                 tools:ignore="HardcodedText" />
@@ -115,7 +115,7 @@
                 android:layout_marginTop="8dp"
                 android:text="성별제한"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/place_title"
                 app:layout_constraintTop_toBottomOf="@+id/place_title" />
@@ -139,7 +139,7 @@
                 android:layout_marginTop="8dp"
                 android:text="나이제한"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/gender_title"
                 app:layout_constraintTop_toBottomOf="@+id/gender_title" />
@@ -163,7 +163,7 @@
                 android:layout_marginTop="8dp"
                 android:text="최소계약기간"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/age_title"
                 app:layout_constraintTop_toBottomOf="@+id/age_title" />
@@ -187,7 +187,7 @@
                 android:layout_marginTop="8dp"
                 android:text="수용인원"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -212,7 +212,7 @@
                 android:fontFamily="@font/nanum_squareb"
                 android:text="상세정보"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -235,7 +235,7 @@
                 android:layout_marginTop="24dp"
                 android:text="방 정보"
                 android:textColor="@color/black"
-                android:textSize="11pt"
+                android:textSize="10pt"
                 android:fontFamily="@font/nanum_squareb"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />

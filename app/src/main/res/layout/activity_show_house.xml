@@ -49,7 +49,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/house_img"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:mutableImageUrl="@{viewModel.image}"
@@ -69,7 +69,7 @@
                 android:textColor="@color/black"
                 android:textSize="11pt"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/house_img" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -273,12 +273,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/room_recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="12dp"
                 app:adapter="@{viewModel.roomAdapter}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"

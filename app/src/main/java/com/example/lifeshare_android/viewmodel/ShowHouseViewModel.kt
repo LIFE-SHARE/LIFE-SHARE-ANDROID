@@ -51,17 +51,19 @@ class ShowHouseViewModel(application: Application) : BaseViewModel<HouseData>(ap
     override fun onRetrieveDataSuccess(data: HouseData) {
         name.value = data.house_data.name
         address.value = data.house_data.address
-        if(data.house_data.genderLimit == "남여혼용") {
-            genderLimit.value = "남여혼용"
-        }
-        else if(data.house_data.genderLimit == "남여분리") {
-            genderLimit.value = "남여분리"
-        }
-        else if(data.house_data.genderLimit == "남성전용") {
-            genderLimit.value = "남성전용"
-        }
-        else if(data.house_data.genderLimit == "여성전용") {
-            genderLimit.value = "여성전용"
+        when (data.house_data.genderLimit) {
+            "남여혼용" -> {
+                genderLimit.value = "남여혼용"
+            }
+            "남여분리" -> {
+                genderLimit.value = "남여분리"
+            }
+            "남성전용" -> {
+                genderLimit.value = "남성전용"
+            }
+            "여성전용" -> {
+                genderLimit.value = "여성전용"
+            }
         }
         ageLimit.value = String.format("만 " + data.house_data.ageLimit + "세 이상")
         contractperiod.value = data.house_data.contractperiod

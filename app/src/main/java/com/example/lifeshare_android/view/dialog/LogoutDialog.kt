@@ -7,16 +7,16 @@ import androidx.lifecycle.Observer
 import com.example.lifeshare_android.BR
 import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.BaseDialog
-import com.example.lifeshare_android.databinding.DialogLogoutBinding
+import com.example.lifeshare_android.databinding.DialogExitBinding
 import com.example.lifeshare_android.view.activity.LoginActivity
 import com.example.lifeshare_android.viewmodel.LogoutViewModel
 
-class LogoutDialog : BaseDialog<DialogLogoutBinding, LogoutViewModel>() {
+class LogoutDialog : BaseDialog<DialogExitBinding, LogoutViewModel>() {
 
     private val TAG: String? = LogoutDialog::class.java.simpleName
 
     override fun getLayoutId(): Int {
-        return R.layout.dialog_logout
+        return R.layout.dialog_exit
     }
 
     override fun getViewModel(): Class<LogoutViewModel> {

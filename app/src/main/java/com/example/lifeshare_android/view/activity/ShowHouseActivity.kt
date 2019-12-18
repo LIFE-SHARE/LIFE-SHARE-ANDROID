@@ -46,8 +46,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
             with(roomAdapter) {
 
                 openRoom.observe(this@ShowHouseActivity, Observer {
-                    simpleToast(it!!)
-                    // TODO : onClickRoomItem <추후 업데이트 할 내용> : ? 방 정보 확인하기 ?
+                    simpleToast(it!!) // TODO : onClickRoomItem <추후 업데이트 할 내용> : 방 정보 확인하기 정도 예상
                 })
             }
         }
@@ -67,5 +66,6 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
                 simpleToast("houseId Null")
             }
         }
+        binding.houseImg.setImageResource(R.drawable.none_image)
     }
 }

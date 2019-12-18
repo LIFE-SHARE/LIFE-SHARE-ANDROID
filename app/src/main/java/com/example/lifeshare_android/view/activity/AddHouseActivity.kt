@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
+import android.os.Bundle
 
 import androidx.lifecycle.Observer
 
@@ -62,6 +63,16 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
                 startActivityWithFinish(MainActivity::class.java)
             })
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setUp()
+    }
+
+    private fun setUp() {
+        binding.houseImage.setImageResource(R.drawable.none_image)
     }
 
     override fun requestNotOkEvent() {

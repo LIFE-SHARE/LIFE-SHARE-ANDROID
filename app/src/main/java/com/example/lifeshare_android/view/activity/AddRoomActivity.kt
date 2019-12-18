@@ -76,6 +76,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
                 simpleToast("houseId : NullPointException")
             }
         }
+        binding.roomImage.setImageResource(R.drawable.none_image)
     }
 
     override fun requestNotOkEvent() {

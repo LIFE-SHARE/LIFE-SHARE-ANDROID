@@ -1,4 +1,4 @@
-package net.gahfy.mvvmposts.utils.extension
+package com.example.lifeshare_android.widget.extension
 
 import android.content.ContextWrapper
 

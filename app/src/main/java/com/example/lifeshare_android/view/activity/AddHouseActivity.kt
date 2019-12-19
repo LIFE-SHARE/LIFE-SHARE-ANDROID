@@ -1,6 +1,7 @@
 package com.example.lifeshare_android.view.activity
 
 import android.content.Intent
+
 import android.os.Bundle
 
 import androidx.lifecycle.Observer
@@ -12,6 +13,8 @@ import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BasePictureActivity
 import com.example.lifeshare_android.databinding.ActivityAddHouseBinding
 import com.example.lifeshare_android.viewmodel.AddHouseViewModel
+import com.example.lifeshare_android.widget.extension.shortToast
+import com.example.lifeshare_android.widget.extension.startActivityWithFinish
 
 class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseViewModel>() {
 
@@ -31,11 +34,11 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
         with(viewModel) {
 
             backMessageToast.observe(this@AddHouseActivity, Observer {
-                simpleToast("취소 되었습니다")
+                this@AddHouseActivity.shortToast("취소 되었습니다")
             })
 
             nullPointImageEvent.observe(this@AddHouseActivity, Observer {
-                simpleToast(it!!)
+                this@AddHouseActivity.shortToast(it!!)
             })
 
             goToAlbum.observe(this@AddHouseActivity, Observer {
@@ -59,8 +62,8 @@ class AddHouseActivity : BasePictureActivity<ActivityAddHouseBinding, AddHouseVi
             })
 
             onSuccessEvent.observe(this@AddHouseActivity, Observer {
-                simpleToast(it!!)
-                startActivityWithFinish(MainActivity::class.java)
+                this@AddHouseActivity.shortToast(it!!)
+                this@AddHouseActivity.startActivityWithFinish(MainActivity::class.java)
             })
         }
     }

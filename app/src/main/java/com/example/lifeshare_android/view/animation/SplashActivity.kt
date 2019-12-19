@@ -11,6 +11,7 @@ import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivitySplashBinding
 import com.example.lifeshare_android.view.activity.LoginActivity
 import com.example.lifeshare_android.viewmodel.SplashViewModel
+import com.example.lifeshare_android.widget.extension.startActivityWithFinish
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
@@ -56,7 +57,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
             override fun onAnimationEnd(animation: Animation) {
                 binding.animationLogo!!.clearAnimation()
-                startActivityWithFinish(LoginActivity::class.java)
+                this@SplashActivity.startActivityWithFinish(LoginActivity::class.java)
             }
 
             override fun onAnimationRepeat(animation: Animation) {}

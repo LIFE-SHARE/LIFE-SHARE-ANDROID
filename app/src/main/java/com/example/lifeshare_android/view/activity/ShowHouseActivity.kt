@@ -13,6 +13,7 @@ import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivityShowHouseBinding
 import com.example.lifeshare_android.viewmodel.ShowHouseViewModel
+import com.example.lifeshare_android.widget.extension.shortToast
 
 class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewModel>() {
 
@@ -48,7 +49,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
             with(roomAdapter) {
 
                 openRoom.observe(this@ShowHouseActivity, Observer {
-                    simpleToast(it!!) // TODO : onClickRoomItem <추후 업데이트 할 내용> : 방 정보 확인하기 정도 예상
+                    this@ShowHouseActivity.shortToast(it!!) // TODO : onClickRoomItem <추후 업데이트 할 내용> : 방 정보 확인하기 정도 예상
                 })
             }
         }
@@ -65,7 +66,7 @@ class ShowHouseActivity : BaseActivity<ActivityShowHouseBinding, ShowHouseViewMo
         when {
             intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getIntExtra("houseId", 0)
             else -> {
-                simpleToast("houseId Null")
+                this@ShowHouseActivity.shortToast("houseId Null")
             }
         }
         binding.roomRecyclerview.layoutManager = GridLayoutManager(this, 2)

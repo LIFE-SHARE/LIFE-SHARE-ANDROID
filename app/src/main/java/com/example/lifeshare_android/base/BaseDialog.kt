@@ -2,8 +2,6 @@ package com.example.lifeshare_android.base
 
 import android.app.Dialog
 
-import android.content.Intent
-
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 
@@ -16,7 +14,6 @@ import android.view.ViewGroup.LayoutParams
 import android.view.Window
 
 import android.widget.RelativeLayout
-import android.widget.Toast
 
 import androidx.annotation.LayoutRes
 
@@ -104,27 +101,6 @@ abstract class BaseDialog<VB : ViewDataBinding, VM : BaseViewModel<*>> : DialogF
     override fun dismiss() {
         super.dismiss()
         dialogCloseEvent.call()
-    }
-
-    protected fun startActivity(activity: Class<*>) {
-        startActivity(Intent(context, activity))
-    }
-
-    protected fun startActivityWithFinish(activity: Class<*>) {
-        startActivityWithFinish(Intent(context, activity))
-    }
-
-    protected fun startActivityWithFinish(intent: Intent) {
-        startActivity(intent)
-        activity!!.finish()
-    }
-
-    protected fun simpleToast(message: String?) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    protected fun simpleToast(message: Int) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

@@ -9,6 +9,7 @@ import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivityShowApplyBinding
 import com.example.lifeshare_android.viewmodel.ShowApplyViewModel
+import com.example.lifeshare_android.widget.extension.shortToast
 
 class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewModel>() {
 
@@ -31,13 +32,13 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
 
                 onClickAcceptEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.accept(it!!)
-                    simpleToast("수락 되었습니다")
+                    this@ShowApplyActivity.shortToast("수락 되었습니다")
                     finish()
                 })
 
                 onClickRefusalEvent.observe(this@ShowApplyActivity, Observer {
                     viewModel.refusal(it!!)
-                    simpleToast("거절 되었습니다")
+                    this@ShowApplyActivity.shortToast("거절 되었습니다")
                     finish()
                 })
             }
@@ -55,7 +56,7 @@ class ShowApplyActivity : BaseActivity<ActivityShowApplyBinding, ShowApplyViewMo
         when {
             intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId").toInt()
             else -> {
-                simpleToast("houseId : null")
+                this@ShowApplyActivity.shortToast("houseId : null")
             }
         }
     }

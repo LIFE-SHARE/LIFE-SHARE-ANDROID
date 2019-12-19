@@ -10,6 +10,7 @@ import com.example.lifeshare_android.base.BaseDialog
 import com.example.lifeshare_android.databinding.DialogExitBinding
 import com.example.lifeshare_android.view.activity.LoginActivity
 import com.example.lifeshare_android.viewmodel.LogoutViewModel
+import com.example.lifeshare_android.widget.extension.startActivityWithFinish
 
 class LogoutDialog : BaseDialog<DialogExitBinding, LogoutViewModel>() {
 
@@ -35,7 +36,7 @@ class LogoutDialog : BaseDialog<DialogExitBinding, LogoutViewModel>() {
             })
 
             openLogin.observe(this@LogoutDialog, Observer {
-                startActivityWithFinish(LoginActivity::class.java)
+                this@LogoutDialog.startActivityWithFinish(LoginActivity::class.java)
             })
         }
     }

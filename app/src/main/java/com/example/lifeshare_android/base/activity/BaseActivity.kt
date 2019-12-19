@@ -1,12 +1,8 @@
 package com.example.lifeshare_android.base.activity
 
-import android.content.Intent
-
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
-
-import android.widget.Toast
 
 import androidx.annotation.LayoutRes
 
@@ -64,23 +60,6 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> : AppCo
         if (VERSION.SDK_INT != VERSION_CODES.O) {
             super.setRequestedOrientation(requestedOrientation)
         }
-    }
-
-    protected fun startActivity(activity: Class<*>) {
-        startActivity(Intent(this, activity))
-    }
-
-    protected fun startActivityWithFinish(activity: Class<*>) {
-        startActivity(Intent(this, activity))
-        finish()
-    }
-
-    protected fun simpleToast(message: String?) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    protected fun simpleToast(message: Int) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

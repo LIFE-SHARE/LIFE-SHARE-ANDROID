@@ -20,6 +20,7 @@ import android.provider.MediaStore
 import androidx.databinding.ViewDataBinding
 
 import com.example.lifeshare_android.base.viewmodel.BaseViewModel
+import com.example.lifeshare_android.widget.extension.shortToast
 
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
@@ -43,7 +44,7 @@ abstract class BasePictureActivity<VB : ViewDataBinding, VM : BaseViewModel<*>> 
         val permissionListener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {}
             override fun onPermissionDenied(deniedPermissions: ArrayList<String?>?) {
-                simpleToast("접근을 허용해야 사진을 등록할 수 있습니다")
+                this@BasePictureActivity.shortToast("접근을 허용해야 사진을 등록할 수 있습니다")
             }
         }
         TedPermission.with(this)

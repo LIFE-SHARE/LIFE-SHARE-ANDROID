@@ -13,6 +13,7 @@ import com.example.lifeshare_android.R
 import com.example.lifeshare_android.base.activity.BasePictureActivity
 import com.example.lifeshare_android.databinding.ActivityAddRoomBinding
 import com.example.lifeshare_android.viewmodel.AddRoomViewModel
+import com.example.lifeshare_android.widget.extension.shortToast
 
 class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewModel>() {
 
@@ -32,11 +33,11 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
         with(viewModel) {
 
             backMessageToast.observe(this@AddRoomActivity, Observer {
-                simpleToast("취소 되었습니다")
+                this@AddRoomActivity.shortToast("취소 되었습니다")
             })
 
             nullPointImageEvent.observe(this@AddRoomActivity, Observer {
-                simpleToast(it!!)
+                this@AddRoomActivity.shortToast(it!!)
             })
 
             goToAlbum.observe(this@AddRoomActivity, Observer {
@@ -55,7 +56,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
             })
 
             onSuccessEvent.observe(this@AddRoomActivity, Observer {
-                simpleToast(it!!)
+                this@AddRoomActivity.shortToast(it!!)
                 startActivity(Intent(this@AddRoomActivity, ShowHouseActivity::class.java)
                     .putExtra("houseId", houseId.value!!))
                 finish()
@@ -73,7 +74,7 @@ class AddRoomActivity : BasePictureActivity<ActivityAddRoomBinding, AddRoomViewM
         when {
             intent!!.hasExtra("houseId") -> viewModel.houseId.value = intent!!.getStringExtra("houseId")!!.toInt()
             else -> {
-                simpleToast("houseId : NullPointException")
+                this@AddRoomActivity.shortToast("houseId : NullPointException")
             }
         }
         binding.roomImage.setImageResource(R.drawable.none_image)

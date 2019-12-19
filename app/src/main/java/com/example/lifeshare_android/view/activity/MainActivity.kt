@@ -12,6 +12,7 @@ import com.example.lifeshare_android.base.activity.BaseActivity
 import com.example.lifeshare_android.databinding.ActivityMainBinding
 import com.example.lifeshare_android.view.dialog.LogoutDialog
 import com.example.lifeshare_android.viewmodel.MainViewModel
+import com.example.lifeshare_android.widget.extension.startActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
@@ -31,7 +32,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         with(viewModel) {
 
             addHouseEvent.observe(this@MainActivity, Observer {
-                startActivity(AddHouseActivity::class.java)
+                this@MainActivity.startActivity(AddHouseActivity::class.java)
             })
 
             with(houseAdapter) {

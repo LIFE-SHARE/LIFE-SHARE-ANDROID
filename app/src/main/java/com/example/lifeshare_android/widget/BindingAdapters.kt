@@ -24,8 +24,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 
 import com.example.lifeshare_android.R
-
-import net.gahfy.mvvmposts.utils.extension.getParentActivity
+import com.example.lifeshare_android.widget.extension.getParentActivity
 
 import java.text.SimpleDateFormat
 
